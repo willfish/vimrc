@@ -1,4 +1,3 @@
 temp_dirs/undodir/*
-sources/ctrlp.vim/doc/tags*
 tags
 .DS_Store
