@@ -1,7 +1,4 @@
-set nocursorcolumn
-set nocursorline
-set norelativenumber
-syntax sync minlines=256
+set shell=bash
 set mouse=a
 
 " Sets how many lines of history VIM has to remember
@@ -31,63 +28,24 @@ nmap <leader>w :w!<cr>
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-" Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
-set langmenu=en
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
 " Turn on the WiLd menu
 set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
-
-"Always show current position
-set ruler
-
-" Height of the command bar
-set cmdheight=2
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 
 " A buffer becomes hidden when it is abandoned
 set hidden
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
 set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
-
 " Don't redraw while executing macros (good performance config)
 set lazyredraw 
-
-" For regular expressions turn magic on
-set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch 
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
 set timeoutlen=500
 
 " Folding
@@ -109,37 +67,11 @@ augroup END
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
-set nocursorcolumn
-set nocursorline
-set norelativenumber
-syntax sync minlines=256
-
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM ==? 'gnome-terminal'
-    set t_Co=256
-endif
 
 try
     colorscheme solarized
 catch
 endtry
-
-" set background=dark
-
-" Set extra options when running in GUI mode
-if has('gui_running')
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set fileformats=unix,dos,mac
 
 set background=dark
 
@@ -157,9 +89,6 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
-" set smarttab
-
 " 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
@@ -168,7 +97,6 @@ set tabstop=2
 set linebreak
 set textwidth=500
 
-set autoindent
 set smartindent
 set wrap "Wrap lines
 
@@ -191,16 +119,6 @@ map <space> :Commentary<CR>
 augroup preserve_last_position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -242,7 +160,6 @@ try
 catch
 endtry
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,12 +167,6 @@ endtry
 cno $h e ~/
 cno $d e ~/Desktop/
 cno $j e ./
-cno $c e <C-\>eCurrentFileDir("e")<cr>
-
-" $q is super useful when browsing on the command line
-" it deletes everything until the last slash 
-cno $q <C-\>eDeleteTillSlash()<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General abbreviations
@@ -266,10 +177,6 @@ iab sdate <c-r>=strftime("%FT%T%z")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-func! CurrentFileDir(cmd)
-  return a:cmd . " " . expand("%:p:h") . "/"
-endfunc
-
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
     execute "normal! vgvy"
