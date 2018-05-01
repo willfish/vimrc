@@ -5,7 +5,6 @@
 " Open Ag and put the cursor in the right position
 map <leader>g :Ag 
 
-
 """"""""""""""""""""""""""""""
 " => MRU plugin
 """"""""""""""""""""""""""""""
@@ -41,20 +40,23 @@ map <leader>nf :NERDTreeFind<cr>
 augroup nerdtree
   " autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-  
+augroup END  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = 'goimports'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic (syntax checker)
+" => ALE (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_linters = {
+\   'c': ['flawfinder', 'cppcheck'],
 \   'haml': ['haml-lint'],
 \   'erb': ['erubi'],
-\   'ruby': ['brakeman', 'rails_best_practices', 'rubocop'],
+\   'elixir': ['credo'],
+\   'ruby': ['brakeman', 'rails_best_practices', 'rubocop', 'reek', 'rufo'],
+\   'terraform': ['tflint'],
 \   'javascript': ['eslint'],
 \   'vim': ['vint'],
 \}
@@ -62,4 +64,31 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
+\   'bash': ['shfmt'],
+\   'sh': ['shfmt']
 \}
+
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_delay=2000
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => QuickRun
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Execute the current file
+map <leader>x :QuickRun<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Alchemist and elixir related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup elixir
+  au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+  au BufRead,BufNewFile *.eex set filetype=eelixir
+augroup END
+let g:mix_format_on_save = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim-Terraform Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:terraform_align=1
+let g:terraform_fold_sections=1
