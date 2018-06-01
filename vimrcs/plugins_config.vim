@@ -54,8 +54,6 @@ let g:ale_linters = {
 \   'c': ['flawfinder', 'cppcheck'],
 \   'haml': ['haml-lint'],
 \   'erb': ['erubi'],
-\   'elixir': ['credo'],
-\   'ruby': ['brakeman', 'rails_best_practices', 'rubocop', 'reek', 'rufo'],
 \   'terraform': ['tflint'],
 \   'javascript': ['eslint'],
 \   'vim': ['vint'],
