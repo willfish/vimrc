@@ -36,7 +36,7 @@ nmap <leader>w :w!<cr>
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set scrolloff=7
 
 " Turn on the WiLd menu
 " set wildmenu
@@ -169,7 +169,7 @@ iab pry binding.pry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! VisualSelection(direction, extra_filter) range
   let l:saved_reg = @"
-  execute "normal! vgvy"
+  execute 'normal! vgvy'
 
   let l:pattern = escape(@", '\\/.*$^~[]')
   let l:pattern = substitute(l:pattern, "\n$", "", "")

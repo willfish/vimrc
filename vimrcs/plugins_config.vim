@@ -50,15 +50,6 @@ let g:go_fmt_command = 'goimports'
 " => ALE (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:ale_linters = {
-" \   'c': ['flawfinder', 'cppcheck'],
-" \   'haml': ['haml-lint'],
-" \   'erb': ['erubi'],
-" \   'terraform': ['tflint'],
-" \   'javascript': ['eslint'],
-" \   'vim': ['vint'],
-" \}
-
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
@@ -78,12 +69,6 @@ augroup elixir
   au BufRead,BufNewFile *.eex set filetype=eelixir
 augroup END
 let g:mix_format_on_save = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-Terraform Configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:terraform_align=1
-let g:terraform_fold_sections=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Anyfold
