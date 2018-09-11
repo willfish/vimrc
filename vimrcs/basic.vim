@@ -2,21 +2,21 @@
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  colorscheme solarized
+  colorscheme afterglow
 catch
 endtry
 
 set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Generic settings 
+" => Generic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=fish
 set mouse=a
 
 " Sets how many lines of history VIM has to remember
 set history=500
-set clipboard^=unnamed
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -28,7 +28,7 @@ let g:mapleader = ','
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
 
@@ -50,23 +50,13 @@ set hidden
 set whichwrap+=<,>,h,l
 set smartcase
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
 set timeoutlen=500
-
-" Folding
-augroup folding
-  set foldcolumn=0
-  setlocal foldmethod=syntax
-  set foldlevel=20
-  autocmd FileType *.c setlocal foldmethod=syntax
-  autocmd FileType *.rb setlocal foldmethod=syntax
-  autocmd FileType Makefile setlocal foldmethod=syntax
-augroup END
 
 " Support commenting out in SML
 augroup commenting
@@ -147,10 +137,10 @@ function! CmdLine(str)
   exe 'menu Foo.Bar :' . a:str
   emenu Foo.Bar
   unmenu Foo
-endfunction 
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on 
+" => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
@@ -172,6 +162,7 @@ cno $j e ./
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 iab sdate <c-r>=strftime("%FT%T%z")<cr>
+iab pry binding.pry
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions

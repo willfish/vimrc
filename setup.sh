@@ -1,16 +1,17 @@
 #! /usr/bin/env bash
-RUNTIME=~/.vim_runtime 
+RUNTIME=~/.vim_runtime
 
 git clone https://github.com/willfish/vimrc $RUNTIME
 
-cat > ~/.vimrc <<VIMRC 
-source $RUNTIME/vimrcs/vundle.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+cat >~/.vimrc <<VIMRC
+source $RUNTIME/vimrcs/plugs.vim
 source $RUNTIME/vimrcs/basic.vim
 source $RUNTIME/vimrcs/filetypes.vim
 source $RUNTIME/vimrcs/plugins_config.vim
 VIMRC
-
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Install and configure homebrew:"
 echo "  /usr/bin/ruby -e \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
@@ -25,5 +26,5 @@ echo "  pip install vint"
 echo "  npm install -g eslint"
 echo
 echo "Open nvim and run the following:"
-echo "  :PluginInstall"
 echo "  :checkhealth"
+echo "  :PlugInstall"

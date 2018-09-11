@@ -3,7 +3,7 @@
 "    requires ag.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open Ag and put the cursor in the right position
-map <leader>g :Ag 
+map <leader>g :Ag
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
@@ -40,7 +40,7 @@ map <leader>nf :NERDTreeFind<cr>
 augroup nerdtree
   " autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-augroup END  
+augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,14 +50,14 @@ let g:go_fmt_command = 'goimports'
 " => ALE (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_linters = {
-\   'c': ['flawfinder', 'cppcheck'],
-\   'haml': ['haml-lint'],
-\   'erb': ['erubi'],
-\   'terraform': ['tflint'],
-\   'javascript': ['eslint'],
-\   'vim': ['vint'],
-\}
+" let g:ale_linters = {
+" \   'c': ['flawfinder', 'cppcheck'],
+" \   'haml': ['haml-lint'],
+" \   'erb': ['erubi'],
+" \   'terraform': ['tflint'],
+" \   'javascript': ['eslint'],
+" \   'vim': ['vint'],
+" \}
 
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
@@ -69,12 +69,6 @@ let g:ale_fixers = {
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_delay=2000
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => QuickRun
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Execute the current file
-map <leader>x :QuickRun<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Alchemist and elixir related
@@ -90,3 +84,23 @@ let g:mix_format_on_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:terraform_align=1
 let g:terraform_fold_sections=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Anyfold
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let anyfold_activate=1
+let anyfold_fold_comments=1
+set foldlevel=7
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+" When pum is visible make tab/shift tab cycle through the options. Enter selects the completion
+inoremap <expr><tab> pumvisible() ? "\<Down>" : "\<tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => WhiteSpace
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
