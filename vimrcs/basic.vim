@@ -2,16 +2,16 @@
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  colorscheme afterglow
+  colorscheme lucius
 catch
 endtry
 
 set background=dark
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Generic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set shell=fish
+set clipboard+=unnamedplus
+" set shell=fish
 set mouse=a
 
 " Sets how many lines of history VIM has to remember
@@ -25,25 +25,24 @@ filetype indent on
 " like <leader>w saves the current file
 let g:mapleader = ','
 
-" Fast saving
+" Fast saving/quitting
 nmap <leader>w :w!<cr>
+nmap <leader>Q :q!<cr>
+nmap <leader>q :wq!<cr>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set scrolloff=7
 
-" Turn on the WiLd menu
-" set wildmenu
-
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -62,7 +61,6 @@ set timeoutlen=500
 augroup commenting
   autocmd FileType sml setlocal commentstring=(*\ %s\ *)
 augroup END
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -89,21 +87,9 @@ set textwidth=500
 set smartindent
 set wrap "Wrap lines
 
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <Space> to commentary
-map <space> :Commentary<CR>
-
 " Return to last edit position when opening files (You want this!)
 augroup preserve_last_position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -114,6 +100,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
+" Map > to commentary
+map cm <Plug>Commentary
 
 if has('mac') || has('macunix')
   nmap <D-j> <M-j>
@@ -131,15 +119,6 @@ set number
 highlight WhiteOnRed ctermbg=white guibg=red
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-  exe 'menu Foo.Bar :' . a:str
-  emenu Foo.Bar
-  unmenu Foo
-endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,35 +128,34 @@ try
 catch
 endtry
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Command mode related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Smart mappings on the command line
-cno $h e ~/
-cno $d e ~/Desktop/
-cno $j e ./
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General abbreviations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
-iab sdate <c-r>=strftime("%FT%T%z")<cr>
-iab pry binding.pry
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CmdLine(str)
+  exe 'menu Foo.Bar :' . a:str
+  emenu Foo.Bar
+  unmenu Foo
+endfunction
+
 function! VisualSelection(direction, extra_filter) range
   let l:saved_reg = @"
   execute 'normal! vgvy'
 
   let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
+  let l:pattern = substitute(l:pattern, "\n$", '', '')
 
-  if a:direction == 'gv'
+  if a:direction ==# 'gv'
     call CmdLine("Ag \"" . l:pattern . "\" " )
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
+  elseif a:direction ==# 'replace'
+    call CmdLine('%s' . '/'. l:pattern . '/')
   endif
 
   let @/ = l:pattern

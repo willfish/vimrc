@@ -10,27 +10,10 @@ map <leader>g :Ag
 """"""""""""""""""""""""""""""
 let g:MRU_Max_Entries = 400
 
-""""""""""""""""""""""""""""""
-" => CTRL-P
-""""""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-
-let g:ctrlp_map = '<c-f>'
-
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-  \ --ignore .git
-  \ --ignore .svn
-  \ --ignore .hg
-  \ --ignore .DS_Store
-  \ --ignore "**/*.pyc"
-  \ -g ""'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" runtime macros/matchit.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = 'left'
 let g:NERDTreeShowHidden=0
 let g:NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
@@ -51,6 +34,7 @@ let g:go_fmt_command = 'goimports'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
 \   'bash': ['shfmt'],
@@ -75,7 +59,7 @@ let g:mix_format_on_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let anyfold_activate=1
 let anyfold_fold_comments=1
-set foldlevel=7
+set foldlevel=99
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Deoplete
@@ -83,7 +67,7 @@ set foldlevel=7
 let g:deoplete#enable_at_startup = 1
 " When pum is visible make tab/shift tab cycle through the options. Enter selects the completion
 inoremap <expr><tab> pumvisible() ? "\<Down>" : "\<tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => WhiteSpace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
