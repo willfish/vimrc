@@ -100,8 +100,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
-" Map > to commentary
-map cm <Plug>Commentary
 
 if has('mac') || has('macunix')
   nmap <D-j> <M-j>

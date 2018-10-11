@@ -1,4 +1,3 @@
-set nocompatible
 filetype off
 
 set shell=bash

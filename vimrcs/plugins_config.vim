@@ -1,4 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Commentary
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map cm <Plug>Commentary
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying
 "    requires ag.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -13,7 +18,7 @@ let g:MRU_Max_Entries = 400
 " runtime macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=0
 let g:NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
@@ -48,6 +53,7 @@ let g:ale_lint_delay=2000
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Alchemist and elixir related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 augroup elixir
   au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
   au BufRead,BufNewFile *.eex set filetype=eelixir
@@ -57,6 +63,7 @@ let g:mix_format_on_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Anyfold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let anyfold_activate=1
 let anyfold_fold_comments=1
 set foldlevel=99
@@ -64,10 +71,12 @@ set foldlevel=99
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:deoplete#enable_at_startup = 1
 " When pum is visible make tab/shift tab cycle through the options. Enter selects the completion
 inoremap <expr><tab> pumvisible() ? "\<Down>" : "\<tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => WhiteSpace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
