@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 RUNTIME=~/.vim_runtime
 
-git clone https://github.com/willfish/vimrc $RUNTIME
+ln -s . $RUNTIME
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -9,7 +9,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 cat >~/.vimrc <<VIMRC
 source $RUNTIME/vimrcs/plugs.vim
 source $RUNTIME/vimrcs/basic.vim
-source $RUNTIME/vimrcs/filetypes.vim
 source $RUNTIME/vimrcs/plugins_config.vim
 VIMRC
 
