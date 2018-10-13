@@ -7,6 +7,8 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
+  Plug 'glts/vim-textobj-comment'
+  Plug 'godlygeek/tabular'
   Plug 'jonathanfilip/vim-lucius'
   Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'

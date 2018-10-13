@@ -1,7 +1,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commentary
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 map cm <Plug>Commentary
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => LeaderF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:Lf_ShortcutF = '<C-f>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying
@@ -14,6 +21,7 @@ map <leader>g :Ag
 " => MRU plugin
 """"""""""""""""""""""""""""""
 let g:MRU_Max_Entries = 400
+map <leader>m :MRU<CR>
 
 " runtime macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -38,6 +46,7 @@ let g:go_fmt_command = 'goimports'
 " => ALE (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+map <leader>a :ALEFix<CR>
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
