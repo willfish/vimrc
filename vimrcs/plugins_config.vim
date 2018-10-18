@@ -95,7 +95,7 @@ let g:strip_whitespace_on_save=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-rspec
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>x :call RunNearestSpec()<CR>
 map <Leader>e :call RunLastSpec()<CR>

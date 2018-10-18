@@ -25,6 +25,7 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'thoughtbot/vim-rspec'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/argtextobj.vim'
