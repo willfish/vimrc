@@ -17,6 +17,7 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'nelstrom/vim-textobj-rubyblock'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'pseewald/vim-anyfold'
+  Plug 'rizzatti/dash.vim'
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'

@@ -11,6 +11,12 @@ map cm <Plug>Commentary
 let g:Lf_ShortcutF = '<C-f>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Dash
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <silent> <S-k> :Dash<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying
 "    requires ag.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
