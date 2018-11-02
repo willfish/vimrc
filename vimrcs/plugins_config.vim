@@ -58,7 +58,8 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
 \   'bash': ['shfmt'],
-\   'sh': ['shfmt']
+\   'sh': ['shfmt'],
+\   'elixir': ['mix_format']
 \}
 
 let g:ale_set_highlights = 0
@@ -78,8 +79,10 @@ let g:mix_format_on_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Anyfold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup anyfold
+  autocmd Filetype * AnyFoldActivate
+augroup END
 
-let anyfold_activate=1
 let anyfold_fold_comments=1
 set foldlevel=99
 
@@ -99,10 +102,11 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-rspec
+" => vim-test
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>x :call RunNearestSpec()<CR>
-map <Leader>e :call RunLastSpec()<CR>
-map <Leader>r :call RunAllSpecs()<CR>
+let test#strategy = "dispatch"
+nmap <silent> <Leader>x :TestNearest<CR>
+nmap <silent> <Leader>t :TestFile<CR>
+nmap <silent> <Leader>r :TestSuite<CR>
+nmap <silent> <Leader>e :TestLast<CR>
+nmap <silent> <Leader>l :TestVisit<CR>
