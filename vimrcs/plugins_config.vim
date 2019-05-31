@@ -98,3 +98,13 @@ nmap <silent> <Leader>t :TestFile<CR>
 nmap <silent> <Leader>r :TestSuite<CR>
 nmap <silent> <Leader>e :TestLast<CR>
 nmap <silent> <Leader>l :TestVisit<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-fugitive
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <silent> <Leader>b :Gblame<CR>
+nmap <silent> <Leader>o :Gbrowse<CR>
+nmap <silent> <Leader>s :Gstatus<CR>
+nmap <silent> <Leader>p :Gpush<CR>
+nmap <silent> <Leader>c :Gcommit<CR>
