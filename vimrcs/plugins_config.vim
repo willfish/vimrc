@@ -103,6 +103,7 @@ nmap <silent> <Leader>l :TestVisit<CR>
 " => vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+nmap <silent> <Leader>i :Git<space>
 nmap <silent> <Leader>b :Gblame<CR>
 nmap <silent> <Leader>o :Gbrowse<CR>
 nmap <silent> <Leader>s :Gstatus<CR>
