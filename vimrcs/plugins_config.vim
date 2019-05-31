@@ -1,27 +1,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Commentary
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-map cm <Plug>Commentary
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => LeaderF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:Lf_ShortcutF = '<C-f>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Dash
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <silent> <S-k> :Dash<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ag searching and cope displaying
-"    requires ag.vim - it's much better than vimgrep/grep
+" => Ag searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open Ag and put the cursor in the right position
-map <leader>g :Ag
+map <leader>g :Rg<space>
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
@@ -29,7 +16,6 @@ map <leader>g :Ag
 let g:MRU_Max_Entries = 400
 map <leader>m :MRU<CR>
 
-" runtime macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,13 +26,10 @@ let g:NERDTreeShowHidden=1
 map <leader>n :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 augroup nerdtree
-  " autocmd vimenter * NERDTree
+  autocmd Filetype 'rb' vimenter * NERDTree
   autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+  autocmd VimEnter * wincmd w
 augroup END
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-go
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_fmt_command = 'goimports'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ALE (syntax checker)
@@ -54,13 +37,14 @@ let g:go_fmt_command = 'goimports'
 
 map <leader>a :ALEFix<CR>
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'ruby': ['rubocop'],
-\   'javascript': ['eslint'],
-\   'bash': ['shfmt'],
-\   'sh': ['shfmt'],
-\   'elixir': ['mix_format']
-\}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'ruby': ['rubocop'],
+      \   'javascript': ['eslint'],
+      \   'bash': ['shfmt'],
+      \   'sh': ['shfmt'],
+      \   'elixir': ['mix_format'],
+      \   'terraform': ['terraform']
+      \}
 
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
@@ -69,12 +53,11 @@ let g:ale_lint_delay=2000
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Alchemist and elixir related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 augroup elixir
   au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
   au BufRead,BufNewFile *.eex set filetype=eelixir
 augroup END
-let g:mix_format_on_save = 1
+" let g:mix_format_on_save = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Anyfold
@@ -94,7 +77,7 @@ let g:deoplete#enable_at_startup = 1
 " When pum is visible make tab/shift tab cycle through the options. Enter selects the completion
 inoremap <expr><tab> pumvisible() ? "\<Down>" : "\<tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
-"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => WhiteSpace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,7 +87,12 @@ let g:strip_whitespace_on_save=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-test
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#strategy = "dispatch"
+let test#strategy = {
+  \ 'nearest': 'neovim',
+  \ 'file':    'dispatch',
+  \ 'suite':   'dispatch',
+\}
+
 nmap <silent> <Leader>x :TestNearest<CR>
 nmap <silent> <Leader>t :TestFile<CR>
 nmap <silent> <Leader>r :TestSuite<CR>

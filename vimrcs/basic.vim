@@ -2,15 +2,16 @@
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  colorscheme lucius
+  colorscheme onedark
 catch
 endtry
-
 set background=dark
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Generic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard+=unnamedplus
+
 " set shell=fish
 set mouse=a
 
@@ -24,15 +25,11 @@ filetype indent on
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let g:mapleader = ','
-
+nnoremap <Space> za
 " Fast saving/quitting
 nmap <leader>w :w!<cr>
 nmap <leader>Q :q!<cr>
 nmap <leader>q :wq!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-" command W w !sudo tee % > /dev/null
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -65,7 +62,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off, since most stuff is in SVN, git etc anyway...
 set nobackup
 set nowritebackup
 set noswapfile
@@ -90,6 +87,7 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Return to last edit position when opening files (You want this!)
 augroup preserve_last_position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
