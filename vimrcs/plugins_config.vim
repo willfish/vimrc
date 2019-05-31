@@ -107,5 +107,7 @@ nmap <silent> <Leader>i :Git<space>
 nmap <silent> <Leader>b :Gblame<CR>
 nmap <silent> <Leader>o :Gbrowse<CR>
 nmap <silent> <Leader>s :Gstatus<CR>
-nmap <silent> <Leader>p :Gpush<CR>
+nmap <silent> <Leader>] :Gpush<CR>
+nmap <silent> <Leader>[ :Gpull<CR>
+nmap <silent> <Leader>d :Gvdiff<CR>
 nmap <silent> <Leader>c :Gcommit<CR>
