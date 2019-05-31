@@ -33,6 +33,7 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/argtextobj.vim'
   Plug 'w0rp/ale'

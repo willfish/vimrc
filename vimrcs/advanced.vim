@@ -103,6 +103,9 @@ nmap <silent> <Leader>l :TestVisit<CR>
 " => vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Make Gdiff default to vertical diff
+set diffopt+=vertical
+
 nmap <silent> <Leader>i :Git<space>
 nmap <silent> <Leader>b :Gblame<CR>
 nmap <silent> <Leader>o :Gbrowse<CR>
