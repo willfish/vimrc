@@ -1,29 +1,16 @@
 #! /usr/bin/env bash
+
+INIT_VIM=~/.config/nvim/init.vim
 RUNTIME=~/.vim_runtime
 
-ln -s . $RUNTIME
+ln -sf $"(pwd)" $RUNTIME
+ln -sf $"(pwd)"/init.vim $INIT_VIM
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+PLUG_GIT=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+PLUG_VIM=~/.local/share/nvim/site/autoload/plug.vim
 
-cat >~/.vimrc <<VIMRC
-source $RUNTIME/vimrcs/plugs.vim
-source $RUNTIME/vimrcs/basic.vim
-source $RUNTIME/vimrcs/plugins_config.vim
-VIMRC
-
-echo "Install and configure homebrew:"
-echo "  /usr/bin/ruby -e \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
-echo "brew install node"
-echo
-echo "Install and configure:"
-echo "  rbenv, pyenv, exenv "
-echo
-echo "Install the following:"
-echo "  gem install haml-lint erubi brakeman rails_best_practices rubocop"
-echo "  pip install vint"
-echo "  npm install -g eslint"
-echo
-echo "Open nvim and run the following:"
-echo "  :checkhealth"
-echo "  :PlugInstall"
+if [ -f "$PLUG_VIM" ]; then
+	echo "$PLUG_VIM exists"
+else
+	curl -fLo $PLUG_VIM --create-dirs $PLUG_GIT
+fi
