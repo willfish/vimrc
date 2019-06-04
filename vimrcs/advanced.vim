@@ -5,14 +5,15 @@
 let g:Lf_ShortcutF = '<C-f>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ag searching
+" => Ripgrep searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open Ag and put the cursor in the right position
+" Open Ripgrep and put the cursor in the right position
 noremap <leader>g :Rg<space>
 
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MRU plugin
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:MRU_Max_Entries = 400
 noremap <leader>m :MRU<CR>
 
@@ -41,7 +42,14 @@ noremap <leader>a :ALEFix<CR>
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'ruby': ['rubocop'],
-      \   'javascript': ['eslint'],
+      \   'javascript': ['prettier'],
+      \   'haml': ['haml-lint'],
+      \   'html': ['prettier'],
+      \   'yaml': ['prettier'],
+      \   'json': ['prettier'],
+      \   'css': ['prettier'],
+      \   'scss': ['prettier'],
+      \   'markdown': ['prettier'],
       \   'bash': ['shfmt'],
       \   'sh': ['shfmt'],
       \   'elixir': ['mix_format'],
