@@ -3,13 +3,13 @@ filetype off
 set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Valloric/YouCompleteMe'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'christoomey/vim-sort-motion'
+  Plug 'drewtempelmeyer/palenight.vim'
   Plug 'glts/vim-textobj-comment'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
-  Plug 'joshdick/onedark.vim'
   Plug 'jremmen/vim-ripgrep'
   Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
