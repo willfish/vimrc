@@ -1,11 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set termguicolors
 try
-  colorscheme onedark
+  colorscheme palenight
 catch
 endtry
-set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Generic settings
@@ -25,11 +26,13 @@ filetype indent on
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let g:mapleader = ','
+
 nnoremap <Space> za
+
 " Fast saving/quitting
-nmap <leader>w :w!<cr>
-nmap <leader>Q :q!<cr>
-nmap <leader>q :wq!<cr>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>q :wq!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -100,10 +103,10 @@ augroup END
 map 0 ^
 
 if has('mac') || has('macunix')
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
+  nnoremap <D-j> <M-j>
+  nnoremap <D-k> <M-k>
+  nnoremap <D-j> <M-j>
+  nnoremap <D-k> <M-k>
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
