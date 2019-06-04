@@ -28,7 +28,6 @@ noremap <leader>n :NERDTreeToggle<cr>
 noremap <leader>nf :NERDTreeFind<cr>
 
 augroup nerdtree
-  " autocmd Filetype ruby NERDTree
   autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
   autocmd VimEnter * wincmd w
 augroup END
