@@ -3,6 +3,7 @@ filetype off
 set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
+  Plug 'Quramy/tsuquyomi'
   Plug 'Valloric/YouCompleteMe'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'christoomey/vim-sort-motion'
