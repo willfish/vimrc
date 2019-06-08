@@ -13,13 +13,13 @@ PLUG_NVIM=~/.local/share/nvim/site/autoload/plug.vim
 PLUG_VIM=~/.vim/autoload/plug.vim
 
 if [ -f "$PLUG_NVIM" ]; then
-	echo "$PLUG_NVIM exists"
+  echo "$PLUG_NVIM exists"
 else
-	curl -fLo $PLUG_NVIM --create-dirs $PLUG_GIT
+  curl -fLo $PLUG_NVIM --create-dirs $PLUG_GIT
 fi
 
 if [ -f "$PLUG_VIM" ]; then
-	echo "$PLUG_VIM exists"
+  echo "$PLUG_VIM exists"
 else
-	curl -fLo $PLUG_VIM --create-dirs $PLUG_GIT
+  curl -fLo $PLUG_VIM --create-dirs $PLUG_GIT
 fi
