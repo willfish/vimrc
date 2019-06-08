@@ -41,3 +41,5 @@ call plug#begin('~/.vim_runtime/plugged/')
 call plug#end()
 
 filetype plugin indent on
+
+set shell=fish
