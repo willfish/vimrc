@@ -57,11 +57,6 @@ set showmatch
 set matchtime=2
 set timeoutlen=500
 
-" Support commenting out in SML
-augroup commenting
-  autocmd FileType sml setlocal commentstring=(*\ %s\ *)
-augroup END
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
