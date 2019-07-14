@@ -11,7 +11,23 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Generic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set clipboard+=unnamedplus
+if has('gui_macvim')
+  set clipboard=unnamed
+  set hlsearch
+
+  " Move current window more easily
+  nnoremap <silent> <M-Up> :wincmd k<CR>
+  nnoremap <silent> <M-Down> :wincmd j<CR>
+  nnoremap <silent> <M-Left> :wincmd h<CR>
+  nnoremap <silent> <M-Right> :wincmd l<CR>
+else
+  set clipboard+=unnamedplus
+  nnoremap <silent> <A-Up> :wincmd k<CR>
+  nnoremap <silent> <A-Down> :wincmd j<CR>
+  nnoremap <silent> <A-Left> :wincmd h<CR>
+  nnoremap <silent> <A-Right> :wincmd l<CR>
+endif
+
 
 " set shell=fish
 set mouse=a
@@ -27,12 +43,16 @@ filetype indent on
 " like <leader>w saves the current file
 let g:mapleader = ','
 
+" Show special characters
+set list
+
 nnoremap <Space> za
 
 " Fast saving/quitting
-nnoremap <leader>w :w!<cr>
-nnoremap <leader>Q :q!<cr>
-nnoremap <leader>q :wq!<cr>
+
+nnoremap <silent> <leader>w :w!<cr>
+nnoremap <silent> <leader>Q :q!<cr>
+nnoremap <silent> <leader>q :wq!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
