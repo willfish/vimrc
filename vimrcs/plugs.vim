@@ -14,6 +14,8 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'jremmen/vim-ripgrep'
   Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
+  Plug 'mattn/gist-vim'
+  Plug 'mattn/webapi-vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nelstrom/vim-textobj-rubyblock'
   Plug 'ntpeters/vim-better-whitespace'
