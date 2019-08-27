@@ -1,4 +1,4 @@
-# My Tiresome Vim Configuration
+# Vim Configuration
 
 Portable vim configuration supporting MacOS.
 
@@ -12,16 +12,16 @@ cd ~/path/to/repos/vimrc
 ./setup.sh
 ```
 
-Now open Vim and run `:PlugInstall`
+Now open vim and run `:PlugInstall`
 
 ## Custom Commands
 
 A list of commands that I find useful and that it is worth you being aware of.
 
-**NB**: &lt;leader> is defined as _,_ (comma).
+**NB**: `<leader>` is defined as , (comma).
 
--   `jk`: goes to normal mode from insert mode (no need to use the escape key - useful in Android keyboards).
--   `jk`: goes to normal mode from terminal mode (no need to use the escape key - useful in Android keyboards).
+-   `jk`: goes to normal mode from insert mode.
+-   `jk`: goes to normal mode from terminal mode.
 -   `<leader>sv`: Source the main vim configuration script.
 -   `<leader>ev`: Edit the main vim configuration script.
 -   `<leader>evb`: Edit the basic vim configuration script.
