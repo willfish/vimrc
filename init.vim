@@ -12,9 +12,8 @@ execute 'source' s:plugs
 execute 'source' s:basic
 execute 'source' s:advanced
 
-" More sensible way to get into normal mode
-" when in terminal and visual modes
 inoremap jk <esc>
+
 if has('nvim')
   tnoremap jk <C-\><C-n>
 endif

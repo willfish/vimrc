@@ -132,3 +132,10 @@ noremap <silent> <Leader>] :Gpush<CR>
 noremap <silent> <Leader>[ :Gpull<CR>
 noremap <silent> <Leader>d :Gvdiff<CR>
 noremap <silent> <Leader>c :Gcommit<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)

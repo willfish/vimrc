@@ -114,8 +114,10 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
+
+" Switch 0 and ^ functionality
+nnoremap 0 ^
+nnoremap ^ 0
 
 if has('mac') || has('macunix')
   nnoremap <D-j> <M-j>
