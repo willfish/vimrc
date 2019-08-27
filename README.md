@@ -22,25 +22,25 @@ A list of commands that I find useful and that it is worth you being aware of.
 
 -   jk: goes to normal mode from insert mode (no need to use the escape key - useful in Android keyboards).
 -   jk: goes to normal mode from terminal mode (no need to use the escape key - useful in Android keyboards).
--   \\&lt;leader>sv: Source the main vim configuration script.
--   \\&lt;leader>ev: Edit the main vim configuration script.
--   \\&lt;leader>eva: Edit the basic vim configuration script.
--   \\&lt;leader>eva: Edit the advanced vim configuration script.
--   \\&lt;leader>evp: Edit the plugin vim configuration script.
--   \\&lt;ctrl>c: (from visual mode) copies the highlighted text into the clpboard
--   \\&lt;leader>v: vertical split
--   \\&lt;leader>h: horizontal split
--   \\&lt;alt>up/down/left/right: moves to split in desired direction
--   \\&lt;ctrl>f: opens fuzzy file finder
--   \\&lt;leader>n: toggles Nerdtree
--   \\&lt;leader>nf: open current file in buffer in Nerdtree
--   \\&lt;leader>x: Run tests nearest to the cursor in the current file.
--   \\&lt;leader>t: Run tests in current file.
--   \\&lt;leader>r: Run all tests in current project.
--   \\&lt;leader>e: Run last invocation of tests (nearest, current file, all).
--   \\&lt;leader>l: Switch to last ran test file.
--   \\&lt;leader>rc: Open a rails console in a separate terminal tab.
--   \\&lt;leader>rs: Start a rails server in a separate terminal tab.
+-   \&lt;leader>sv: Source the main vim configuration script.
+-   \&lt;leader>ev: Edit the main vim configuration script.
+-   \&lt;leader>eva: Edit the basic vim configuration script.
+-   \&lt;leader>eva: Edit the advanced vim configuration script.
+-   \&lt;leader>evp: Edit the plugin vim configuration script.
+-   \&lt;ctrl>c: (from visual mode) copies the highlighted text into the clpboard
+-   \&lt;leader>v: vertical split
+-   \&lt;leader>h: horizontal split
+-   \&lt;alt>up/down/left/right: moves to split in desired direction
+-   \&lt;ctrl>f: opens fuzzy file finder
+-   \&lt;leader>n: toggles Nerdtree
+-   \&lt;leader>nf: open current file in buffer in Nerdtree
+-   \&lt;leader>x: Run tests nearest to the cursor in the current file.
+-   \&lt;leader>t: Run tests in current file.
+-   \&lt;leader>r: Run all tests in current project.
+-   \&lt;leader>e: Run last invocation of tests (nearest, current file, all).
+-   \&lt;leader>l: Switch to last ran test file.
+-   \&lt;leader>rc: Open a rails console in a separate terminal tab.
+-   \&lt;leader>rs: Start a rails server in a separate terminal tab.
 
 ## Plugins
 
