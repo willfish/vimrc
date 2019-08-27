@@ -21,25 +21,25 @@ A list of commands that I find useful and that it is worth you being aware of.
 **NB**: <leader\> is defined as *,* (comma).
   * jk: goes to normal mode from insert mode (no need to use the escape key - useful in Android keyboards).
   * jk: goes to normal mode from terminal mode (no need to use the escape key - useful in Android keyboards).
-  * <leader\>sv: Source the main vim configuration script.
-  * <leader\>ev: Edit the main vim configuration script.
-  * <leader\>eva: Edit the basic vim configuration script.
-  * <leader\>eva: Edit the advanced vim configuration script.
-  * <leader\>evp: Edit the plugin vim configuration script.
-  * <ctrl\>c: (from visual mode) copies the highlighted text into the clpboard
-  * <leader\>v: vertical split
-  * <leader\>h: horizontal split
-  * <alt\>up/down/left/right: moves to split in desired direction
-  * <ctrl\>f: opens fuzzy file finder
-  * <leader\>n: toggles Nerdtree
-  * <leader\>nf: open current file in buffer in Nerdtree
-  * <leader\>x: Run tests nearest to the cursor in the current file.
-  * <leader\>t: Run tests in current file.
-  * <leader\>r: Run all tests in current project.
-  * <leader\>e: Run last invocation of tests (nearest, current file, all).
-  * <leader\>l: Switch to last ran test file.
-  * <leader\>rc: Open a rails console in a separate terminal tab.
-  * <leader\>rs: Start a rails server in a separate terminal tab.
+  * \<leader\>sv: Source the main vim configuration script.
+  * \<leader\>ev: Edit the main vim configuration script.
+  * \<leader\>eva: Edit the basic vim configuration script.
+  * \<leader\>eva: Edit the advanced vim configuration script.
+  * \<leader\>evp: Edit the plugin vim configuration script.
+  * \<ctrl\>c: (from visual mode) copies the highlighted text into the clpboard
+  * \<leader\>v: vertical split
+  * \<leader\>h: horizontal split
+  * \<alt\>up/down/left/right: moves to split in desired direction
+  * \<ctrl\>f: opens fuzzy file finder
+  * \<leader\>n: toggles Nerdtree
+  * \<leader\>nf: open current file in buffer in Nerdtree
+  * \<leader\>x: Run tests nearest to the cursor in the current file.
+  * \<leader\>t: Run tests in current file.
+  * \<leader\>r: Run all tests in current project.
+  * \<leader\>e: Run last invocation of tests (nearest, current file, all).
+  * \<leader\>l: Switch to last ran test file.
+  * \<leader\>rc: Open a rails console in a separate terminal tab.
+  * \<leader\>rs: Start a rails server in a separate terminal tab.
 
 
 ## Plugins
