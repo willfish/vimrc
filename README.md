@@ -44,7 +44,7 @@ A list of commands that I find useful and that it is worth you being aware of.
 
 ## Plugins
 
--   [LeaderF]\('<https://github.com/Yggdroot/LeaderF'>, { 'do': './install.sh' }) is a fuzzy file finder invoked by hitting Ctrl-F in normal mode and typing some part of the file name you'd like to open.
+-   [LeaderF]('<https://github.com/Yggdroot/LeaderF) is a fuzzy file finder invoked by hitting Ctrl-F in normal mode and typing some part of the file name you'd like to open.
 -   [YouCompleteMe]('https://github.com/Valloric/YouCompleteMe') Auto Completion framework FTW
 -   [alchemist.vim]('https://github.com/slashmili/alchemist.vim') Comprehensive support for elixir programming
 -   [ale]('https://github.com/w0rp/ale') Asynchronous linting of many languages.
