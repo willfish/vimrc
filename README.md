@@ -14,6 +14,13 @@ cd ~/path/to/repos/vimrc
 
 Now open vim and run `:PlugInstall`
 
+## Configuration
+
+- See [init] configuration file for initialisation setup.
+- See [basic] configuration file for basic configuration.
+- See [advanced] plugin configuration file for more convenience commands.
+- See [plugs] for a list of installed plugins.
+
 ## Custom Commands
 
 A list of commands that I find useful and that it is worth you being aware of.
@@ -41,6 +48,7 @@ A list of commands that I find useful and that it is worth you being aware of.
 -   `<leader>l`: Switch to last ran test file.
 -   `<leader>rc`: Open a rails console in a separate terminal tab.
 -   `<leader>rs`: Start a rails server in a separate terminal tab.
+
 
 ## Plugins
 
@@ -81,3 +89,8 @@ A list of commands that I find useful and that it is worth you being aware of.
 -   [vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock) Creates a target object for ruby (and happily elixir) blocks `dar` (delete a ruby block)
 -   [vim-textobj-user](https://github.com/kana/vim-textobj-user) Support plugin for simplifying other textobj plugins.
 -   [vim-unimpaired](https://github.com/tpope/vim-unimpaired) Provides useful mappings for adding lines/navigating background quickfix files/lint suggestions
+
+[init]:     https://github.com/willfish/vimrc/tree/master/init.vim
+[basic]:    https://github.com/willfish/vimrc/tree/master/vimrcs/basic.vim
+[advanced]: https://github.com/willfish/vimrc/tree/master/vimrcs/advanced.vim
+[plugs]:    https://github.com/willfish/vimrc/tree/master/vimrcs/plugs.vim
