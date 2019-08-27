@@ -54,6 +54,11 @@ nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>Q :q!<cr>
 nnoremap <silent> <leader>q :wq!<cr>
 
+" Fast splitting
+
+nnoremap <silent> <leader>v :vsplit<cr>
+nnoremap <silent> <leader>h :split<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
