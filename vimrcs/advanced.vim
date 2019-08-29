@@ -114,6 +114,7 @@ nnoremap <silent> <Leader>l :TestVisit<CR>
 " => vim-dispatch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+nnoremap <silent> <Leader>bi :Dispatch bundle install<CR>
 nnoremap <silent> <Leader>rc :Dispatch bundle exec rails console<CR>
 nnoremap <silent> <Leader>rs :Dispatch bundle exec rails server<CR>
 
