@@ -16,6 +16,7 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'kana/vim-textobj-fold'
   Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
+  Plug 'mattn/webapi-vim'
   Plug 'mattn/gist-vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nelstrom/vim-textobj-rubyblock'
