@@ -44,4 +44,6 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'yegappan/mru'
 call plug#end()
 
+set shell=fish
+
 filetype plugin indent on
