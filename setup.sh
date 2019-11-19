@@ -2,11 +2,11 @@
 
 INIT_NVIM=~/.config/nvim/init.vim
 INIT_VIM=~/.vimrc
-RUNTIME=~/.vim_runtime
 
-mdkir -p ~/.config/nvim
+mkdir -p ~/.config/nvim
+mkdir -p ~/.vim/autoload/
+mkdir -p ~/.local/share/nvim/site/autoload/
 
-ln -sf $(pwd) $RUNTIME
 ln -sf $(pwd)/init.vim $INIT_NVIM
 ln -sf $(pwd)/init.vim $INIT_VIM
 
@@ -17,5 +17,5 @@ PLUG_VIM=~/.vim/autoload/plug.vim
 
 curl -fLso $PLUG_INSTALL_DIR --create-dirs $PLUG_GIT
 
-ln -sf $PLUG $PLUG_NVIM
-ln -sf $PLUG $PLUG_VIM
+ln -sf $PLUG_INSTALL_DIR $PLUG_NVIM
+ln -sf $PLUG_INSTALL_DIR $PLUG_VIM

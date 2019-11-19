@@ -8,7 +8,7 @@ let g:Lf_ShortcutF = '<C-f>'
 " => Ripgrep searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open Ripgrep and put the cursor in the right position
-noremap <leader>g :Rg<space>
+noremap <leader>g :Ag<space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MRU plugin
