@@ -3,21 +3,30 @@ filetype off
 set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
-  Plug 'Shougo/deoplete.nvim'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'ap/vim-css-color'
   Plug 'b4winckler/vim-angry'
   Plug 'christoomey/vim-sort-motion'
   Plug 'drewtempelmeyer/palenight.vim'
   Plug 'glts/vim-textobj-comment'
+  Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
   Plug 'janko-m/vim-test'
+  Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
   Plug 'junegunn/vim-easy-align'
   Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
+  Plug 'kovisoft/paredit'
+  Plug 'l04m33/vlime', {'rtp': 'vim/'}
   Plug 'mattn/gist-vim'
   Plug 'mattn/webapi-vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nelstrom/vim-textobj-rubyblock'
+  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'pseewald/vim-anyfold'
   Plug 'rking/ag.vim'
