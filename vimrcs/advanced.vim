@@ -42,7 +42,7 @@ noremap <leader>a :ALEFix<CR>
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'ruby': ['rubocop'],
-      \   'javascript': ['prettier'],
+      \   'javascript': ['eslint'],
       \   'haml': ['haml-lint'],
       \   'html': ['prettier'],
       \   'yaml': ['prettier'],
@@ -80,16 +80,6 @@ let anyfold_fold_comments=1
 set foldlevel=99
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-" let g:deoplete#enable_at_startup = 1
-" When pum is visible make tab/shift tab cycle through the options. Enter selects the completion
-" inoremap <expr><tab> pumvisible() ? "\<Down>" : "\<tab>"
-" inoremap <expr><S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => WhiteSpace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:better_whitespace_enabled=1
@@ -103,6 +93,7 @@ let test#strategy = {
   \ 'file':    'dispatch',
   \ 'suite':   'dispatch',
 \}
+let test#ruby#rspec#executable = "bundle exec rspec"
 
 nnoremap <silent> <Leader>x :TestNearest<CR>
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -123,7 +114,7 @@ nnoremap <silent> <Leader>rs :Dispatch bundle exec rails server<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Make Gdiff default to vertical diff
-set diffopt+=vertical
+" set diffopt+=vertical
 
 noremap <silent> <Leader>i :Git<space>
 noremap <silent> <Leader>b :Gblame<CR>
@@ -165,6 +156,4 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"

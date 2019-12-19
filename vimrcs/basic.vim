@@ -28,7 +28,6 @@ else
   nnoremap <silent> <A-Right> :wincmd l<CR>
 endif
 
-
 " set shell=fish
 set mouse=a
 
