@@ -188,3 +188,8 @@ endfunction
 " => Aptly.conf syntax
 """"""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead aptly.conf set syntax=json
+
+""""""""""""""""""""""""""""""
+" => Nginx for Impero
+""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *cloud.conf set syntax=nginx
