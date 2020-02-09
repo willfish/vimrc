@@ -29,9 +29,9 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'preservim/nerdtree'
   Plug 'pseewald/vim-anyfold'
   Plug 'rking/ag.vim'
-  Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
   Plug 'slashmili/alchemist.vim'
   Plug 'stefandtw/quickfix-reflector.vim'
@@ -53,6 +53,9 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
   Plug 'yegappan/mru'
+    " Must be loaded last
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 set shell=fish
