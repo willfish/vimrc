@@ -3,9 +3,11 @@ filetype off
 set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
+  Plug 'vim-scripts/dbext.vim'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'ap/vim-css-color'
   Plug 'b4winckler/vim-angry'
+  Plug 'chr4/nginx.vim'
   Plug 'christoomey/vim-sort-motion'
   Plug 'drewtempelmeyer/palenight.vim'
   Plug 'glts/vim-textobj-comment'
@@ -23,7 +25,9 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'nelstrom/vim-textobj-rubyblock'
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
