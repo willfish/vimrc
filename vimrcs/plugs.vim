@@ -99,7 +99,7 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'tpope/vim-speeddating'
   " Navigate quickfix with ]q (next) [q (previous) entry shortcut
   Plug 'tpope/vim-unimpaired'
-  " Almost a motion but not quite. Change Add and Delete surrounding characters around a target object
+  " Change, add and delete surrounding characters around a target object
   Plug 'tpope/vim-surround'
 
   """""""""""""""""""""
