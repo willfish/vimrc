@@ -57,9 +57,9 @@ call plug#begin('~/.vim_runtime/plugged/')
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
   Plug 'yegappan/mru'
-    " Must be loaded last
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  " Must be loaded last
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 set shell=fish
