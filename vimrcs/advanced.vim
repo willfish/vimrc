@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:Lf_ShortcutF = '<C-f>'
+let g:Lf_WindowPosition = 'popup'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ripgrep searching
@@ -88,11 +89,20 @@ let g:strip_whitespace_on_save=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-test
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#strategy = {
-  \ 'nearest': 'neovim',
-  \ 'file':    'dispatch',
-  \ 'suite':   'dispatch',
-\}
+if has('gui_macvim')
+  let test#strategy = {
+        \ 'nearest': 'iterm',
+        \ 'file':    'iterm',
+        \ 'suite':   'iterm',
+        \}
+else
+  let test#strategy = {
+        \ 'nearest': 'neovim',
+        \ 'file':    'dispatch',
+        \ 'suite':   'dispatch',
+        \}
+endif
+
 let test#ruby#rspec#executable = "bundle exec rspec"
 
 nnoremap <silent> <Leader>x :TestNearest<CR>
@@ -100,6 +110,7 @@ nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>r :TestSuite<CR>
 nnoremap <silent> <Leader>e :TestLast<CR>
 nnoremap <silent> <Leader>l :TestVisit<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-dispatch
