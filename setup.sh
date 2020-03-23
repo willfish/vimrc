@@ -17,5 +17,6 @@ PLUG_VIM=~/.vim/autoload/plug.vim
 
 curl -fLso $PLUG_INSTALL_DIR --create-dirs $PLUG_GIT
 
+ln -sf $(pwd) $HOME/.vim_runtime
 ln -sf $PLUG_INSTALL_DIR $PLUG_NVIM
 ln -sf $PLUG_INSTALL_DIR $PLUG_VIM
