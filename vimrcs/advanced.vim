@@ -152,6 +152,18 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
+let g:coc_global_extensions = [
+      \'coc-vimlsp',
+      \'coc-snippets',
+      \'coc-tsserver',
+      \'coc-solargraph',
+      \'coc-python',
+      \'coc-rls',
+      \'coc-json',
+      \'coc-css',
+      \'coc-go'
+      \]
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
