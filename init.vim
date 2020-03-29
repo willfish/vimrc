@@ -16,6 +16,7 @@ inoremap jk <esc>
 
 if has('nvim')
   tnoremap jk <C-\><C-n>
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
