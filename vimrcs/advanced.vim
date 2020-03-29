@@ -89,21 +89,14 @@ let g:strip_whitespace_on_save=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-test
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('gui_macvim')
-  let test#strategy = {
-        \ 'nearest': 'iterm',
-        \ 'file':    'iterm',
-        \ 'suite':   'iterm',
-        \}
-else
-  let test#strategy = {
-        \ 'nearest': 'neovim',
-        \ 'file':    'dispatch',
-        \ 'suite':   'dispatch',
-        \}
-endif
 
-let test#ruby#rspec#executable = "bundle exec rspec"
+let test#strategy = {
+      \ 'nearest': 'dispatch',
+      \ 'file':    'dispatch',
+      \ 'suite':   'dispatch_background',
+      \}
+
+let test#ruby#rspec#executable = 'bundle exec rspec'
 
 nnoremap <silent> <Leader>x :TestNearest<CR>
 nnoremap <silent> <Leader>t :TestFile<CR>
