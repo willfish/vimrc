@@ -111,6 +111,15 @@ nnoremap <silent> <Leader>r :TestSuite<CR>
 nnoremap <silent> <Leader>e :TestLast<CR>
 nnoremap <silent> <Leader>l :TestVisit<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => neoterm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let g:neoterm_default_mod = 'vertical'
+  vnoremap <silent> <Leader>x :<C-u>TREPLSendSelection<CR>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-dispatch

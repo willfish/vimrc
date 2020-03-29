@@ -61,7 +61,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Running tests
 """""""""""""""
 Plug 'janko-m/vim-test'
-
+Plug 'kassio/neoterm'
 """"""""""""""""""""
 " Linting and tidies
 """"""""""""""""""""
