@@ -6,14 +6,22 @@ let g:fzf_command_prefix = 'Fzf'
 
 function! s:change_branch(branch)
   let result = system('git checkout ' . a:branch)
-  :e!
+
+  if @% !=# ''
+    :e!
+  end
+
   :AirlineRefresh
   echomsg 'Changed branch to ' . a:branch
 endfunction
 
 function! s:change_remote_branch(branch)
   let l:_ = system('git checkout --track ' . a:branch)
-  :e!
+
+  if @% !=# ''
+    :e!
+  end
+
   :AirlineRefresh
   echom 'Changed to remote branch' . a:branch
 endfun
