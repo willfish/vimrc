@@ -1,9 +1,49 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => LeaderF
+" => fzf.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:Lf_ShortcutF = '<C-f>'
-let g:Lf_WindowPosition = 'popup'
+let g:fzf_command_prefix = 'Fzf'
+
+function! s:change_branch(branch)
+  let result = system('git checkout ' . a:branch)
+  :e!
+  :AirlineRefresh
+  echomsg 'Changed branch to ' . a:branch
+endfunction
+
+function! s:change_remote_branch(branch)
+  let l:_ = system('git checkout --track ' . a:branch)
+  :e!
+  :AirlineRefresh
+  echom 'Changed to remote branch' . a:branch
+endfun
+
+command! Gbranch call fzf#run(
+      \ {
+      \ 'source': 'git branch',
+      \ 'sink': function('<sid>change_branch'),
+      \ 'options': '-m',
+      \ 'window': { 'width': 1.9, 'height': 0.6 }
+      \ })
+
+command! Grbranch call fzf#run(
+      \ {
+      \ 'source': 'git branch -r',
+      \ 'sink': function('<sid>change_remote_branch'),
+      \ 'options': '-m',
+      \ 'window': { 'width': 0.9, 'height': 0.6 }
+     \ })
+
+nnoremap <C-b> :Grbranch<CR>
+nnoremap <C-f> :FzfFiles<CR>
+nnoremap <C-s> :FzfGFiles?<CR>
+nnoremap <C-g> :FzfAg<CR>
+nnoremap <C-h> :FzfHelp<CR>
+nnoremap <C-i> :FzfBLines<CR>
+nnoremap <C-l> :FzfColors<CR>
+nnoremap <C-t> :FzfCommits<CR>
+nnoremap <C-m> :FzfMaps<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching

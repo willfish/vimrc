@@ -10,10 +10,11 @@ call plug#begin('~/.vim_runtime/plugged/')
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 
-""""""""""""""""
+"""""""""""""""""
 " File navigation
 """""""""""""""""
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'stefandtw/quickfix-reflector.vim'
