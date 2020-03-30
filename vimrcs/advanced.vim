@@ -51,7 +51,6 @@ nnoremap <C-h> :FzfHelp<CR>
 nnoremap <C-l> :FzfBLines<CR>
 nnoremap <C-o> :FzfColors<CR>
 nnoremap <C-t> :FzfCommits<CR>
-nnoremap <C-m> :FzfMaps<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching
