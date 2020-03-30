@@ -39,11 +39,10 @@ nnoremap <C-f> :FzfFiles<CR>
 nnoremap <C-s> :FzfGFiles?<CR>
 nnoremap <C-g> :FzfAg<CR>
 nnoremap <C-h> :FzfHelp<CR>
-nnoremap <C-i> :FzfBLines<CR>
-nnoremap <C-l> :FzfColors<CR>
+nnoremap <C-l> :FzfBLines<CR>
+nnoremap <C-o> :FzfColors<CR>
 nnoremap <C-t> :FzfCommits<CR>
 nnoremap <C-m> :FzfMaps<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching
