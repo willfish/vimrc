@@ -42,7 +42,8 @@ command! Grbranch call fzf#run(
       \ 'window': { 'width': 0.9, 'height': 0.6 }
      \ })
 
-nnoremap <C-b> :Grbranch<CR>
+nnoremap <S-b> :Grbranch<CR>
+nnoremap <C-b> :Gbranch<CR>
 nnoremap <C-f> :FzfFiles<CR>
 nnoremap <C-s> :FzfGFiles?<CR>
 nnoremap <C-g> :FzfAg<CR>
