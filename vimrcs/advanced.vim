@@ -6,9 +6,9 @@ let g:Lf_ShortcutF = '<C-f>'
 let g:Lf_WindowPosition = 'popup'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ripgrep searching
+" => Ag searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open Ripgrep and put the cursor in the right position
+" Open Ag and put the cursor in the right position
 noremap <leader>g :Ag<space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
