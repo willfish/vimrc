@@ -4,6 +4,8 @@
 
 let g:fzf_command_prefix = 'Fzf'
 
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+
 function! s:change_branch(branch)
   let result = system('git checkout ' . a:branch)
 
