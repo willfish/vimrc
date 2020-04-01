@@ -9,6 +9,7 @@ call plug#begin('~/.vim_runtime/plugged/')
 """""""""""""""""""
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/limelight.vim'
 
 """""""""""""""""
 " File navigation
@@ -19,7 +20,6 @@ Plug 'preservim/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'yegappan/mru'
-
 """""""""""""""""""
 " Languages support
 """""""""""""""""""
@@ -35,6 +35,7 @@ Plug 'slashmili/alchemist.vim'
 
 " Ruby
 Plug 'tpope/vim-bundler'
+Plug 'junegunn/vim-easy-align'
 
 """""""""""""""""""
 " Extra Vim Objects
@@ -63,6 +64,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 """""""""""""""
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
+
 """"""""""""""""""""
 " Linting and tidies
 """"""""""""""""""""
