@@ -117,6 +117,10 @@ augroup elixir
 augroup END
 " let g:mix_format_on_save = 1
 
+augroup helpfiles
+  autocmd FileType help nnoremap q :q<CR>
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Anyfold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
