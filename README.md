@@ -1,10 +1,20 @@
 # Vim Configuration
 
-Portable vim configuration supporting MacOS.
+Portable neovim configuration configured for MacOS.
 
-Configured to work with vim and neovim.
+## Prequisites
 
-## Instructions
+- [asdf](https://asdf-vm.com/#/)
+- nodejs 13.11.0
+    - neovim
+- ruby 2.7.0
+    - neovim
+    - solargraph
+- python 3.7.5
+    - neovim
+- nerd font installed (brew cask install font-hack-nerd-font) and configured (see terminal docs for this)
+
+## Setup
 
 ```bash
 git clone http://github.com/willfish/vimrc.git ~/<path/to/repos>
@@ -27,18 +37,19 @@ A list of commands that I find useful and that it is worth you being aware of.
 
 **NB**: `<leader>` is defined as , (comma).
 
--   `jk`: goes to normal mode from insert mode.
--   `jk`: goes to normal mode from terminal mode.
+-   `jk`: goes to normal mode from insert and terminal modes.
 -   `<leader>sv`: Source the main vim configuration script.
 -   `<leader>ev`: Edit the main vim configuration script.
 -   `<leader>evb`: Edit the basic vim configuration script.
 -   `<leader>eva`: Edit the advanced vim configuration script.
 -   `<leader>evp`: Edit the plugin vim configuration script.
--   `<ctrl>c`: (from visual mode) copies the highlighted text into the clpboard
 -   `<leader>v`: vertical split
 -   `<leader>h`: horizontal split
 -   `<alt>up/down/left/right`: moves to split in desired direction
--   `<ctrl>f`: opens fuzzy file finder
+-   `<ctrl>f`: opens fuzzy file search
+-   `<ctrl>l`: opens fuzzy line selecter (current buffer)
+-   `<ctrl>b`: opens fuzzy branch switcher
+-   `<ctrl>h`: opens fuzzy vim help navigation
 -   `<leader>n`: toggles Nerdtree
 -   `<leader>nf`: open current file in buffer in Nerdtree
 -   `<leader>x`: Run tests nearest to the cursor in the current file.
@@ -46,17 +57,12 @@ A list of commands that I find useful and that it is worth you being aware of.
 -   `<leader>r`: Run all tests in current project.
 -   `<leader>e`: Run last invocation of tests (nearest, current file, all).
 -   `<leader>l`: Switch to last ran test file.
--   `<leader>rc`: Open a rails console in a separate terminal tab.
--   `<leader>rs`: Start a rails server in a separate terminal tab.
-
 
 ## Plugins
 
--   [LeaderF](https://github.com/Yggdroot/LeaderF) is a fuzzy file finder invoked by hitting Ctrl-F in normal mode and typing some part of the file name you'd like to open.
--   [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) Auto Completion framework FTW
--   [alchemist.vim](https://github.com/slashmili/alchemist.vim) Comprehensive support for elixir programming
+-   [fzf.vim](https://github.com/junegunn/fzf.vim) is a fuzzy file finder invoked by hitting Ctrl-F in normal mode and typing some part of the file name you'd like to open.
+-   [COC](https://github.com/neoclide/coc.nvim) Auto Completion and intellisense framework
 -   [ale](https://github.com/w0rp/ale) Asynchronous linting of many languages.
--   [gist-vim](https://github.com/mattn/gist-vim) Upload gists quickly and easily with `:Gist`
 -   [mru](https://github.com/yegappan/mru) Stores a list of recently opened files `<leader>m`
 -   [nerdtree](https://github.com/scrooloose/nerdtree) puts a directory tree on the left side of the screen. Press `<leader>n` to open it at your project root, or `<leader>nf` to open it with the current file selected. You can press `m` to move, delete, or create files. Press `?` inside the tree to get more help.
 -   [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) Theme I enjoy
@@ -67,7 +73,6 @@ A list of commands that I find useful and that it is worth you being aware of.
 -   [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace) Automates removal of whitespace on file save callback.
 -   [vim-bundler](https://github.com/tpope/vim-bundler) Adds syntax highlighting for Gemfile and Gemfile.lock
 -   [vim-commentary](https://github.com/tpope/vim-commentary) Creates motions for comments `gcac` (go comment a comment), `gcap` (go comment a paragraph).
--   [vim-css-color](https://github.com/ap/vim-css-color) Colour css scss colours (because what human reads hex colours, etc)
 -   [vim-dispatch](https://github.com/tpope/vim-dispatch) Amazing parallelisation plugin for performing actions in separate terminal tabs (used in this config for running rails console/server and full suite tests in separate terminal windows - enabling me to get on with editing the current file).
 -   [vim-easy-align](https://github.com/junegunn/vim-easy-align) Stupid easy way of commenting a visual selection with the align verb `ga=`.
 -   [vim-endwise](https://github.com/tpope/vim-endwise) Auto terminate different do/end constructs in various languages.
@@ -78,7 +83,7 @@ A list of commands that I find useful and that it is worth you being aware of.
 -   [vim-rails](https://github.com/tpope/vim-rails) Supports everything Rails.
 -   [vim-repeat](https://github.com/tpope/vim-repeat) Enables repeating tpope's vim-surround plugin motions.
 -   [vim-rhubarb](https://github.com/tpope/vim-rhubarb) Enables github integration for vim-fugitive. Enables opening github urls for easy sharing, etc.
--   [vim-ripgrep](https://github.com/jremmen/vim-ripgrep) Open a quickfix list of search terms with ([a faster ag replacement](https://github.com/ggreer/the_silver_searcher))
+-   [ag.vim](https://github.com/rking/ag.vim) Open a quickfix list of search terms with ([a faster grep replacement](https://github.com/ggreer/the_silver_searcher))
 -   [vim-sort-motion](https://github.com/christoomey/vim-sort-motion) Provides a motion for sorting target objects `gsap` (go sort a paragraph)
 -   [vim-speeddating](https://github.com/tpope/vim-speeddating) Incredible `<ctrl-a>`/`<ctrl-x>` support for dates/times in iso formats.
 -   [vim-surround](https://github.com/tpope/vim-surround) Useful way of manipulating surround objects `ds{` (delete first surrounding {} around current cursor)
