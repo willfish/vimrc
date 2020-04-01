@@ -30,9 +30,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'kovisoft/paredit'
 Plug 'l04m33/vlime', {'rtp': 'vim/'}
 
-" Elixir
-Plug 'slashmili/alchemist.vim'
-
 " Ruby
 Plug 'tpope/vim-bundler'
 Plug 'junegunn/vim-easy-align'

@@ -202,14 +202,15 @@ set signcolumn=yes
 
 let g:coc_global_extensions = [
       \'coc-vimlsp',
-      \'coc-snippets',
-      \'coc-tsserver',
-      \'coc-solargraph',
+      \'coc-css',
+      \'coc-elixir',
+      \'coc-go',
+      \'coc-json',
       \'coc-python',
       \'coc-rls',
-      \'coc-json',
-      \'coc-css',
-      \'coc-go'
+      \'coc-snippets',
+      \'coc-solargraph',
+      \'coc-tsserver'
       \]
 
 function! s:check_back_space() abort
@@ -228,6 +229,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-easy-align
