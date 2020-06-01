@@ -4,7 +4,6 @@ set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
 
-Plug 'morhetz/gruvbox'                                             | " Theme
 Plug 'sainnhe/gruvbox-material'                                    | " Theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
 Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
