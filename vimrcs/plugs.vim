@@ -4,100 +4,36 @@ set shell=bash
 
 call plug#begin('~/.vim_runtime/plugged/')
 
-"""""""""""""""""""
-" Vim look and feel
-"""""""""""""""""""
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'junegunn/limelight.vim'
-
-"""""""""""""""""
-" File navigation
-"""""""""""""""""
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'rking/ag.vim'
-Plug 'stefandtw/quickfix-reflector.vim'
-Plug 'yegappan/mru'
-"""""""""""""""""""
-" Languages support
-"""""""""""""""""""
-" Master plugin for all language syntax highlighting
-Plug 'sheerun/vim-polyglot'
-
-" Common Lisp
-Plug 'kovisoft/paredit'
-Plug 'l04m33/vlime', {'rtp': 'vim/'}
-
-" Ruby
-Plug 'tpope/vim-bundler'
-Plug 'junegunn/vim-easy-align'
-
-"""""""""""""""""""
-" Extra Vim Objects
-"""""""""""""""""""
-Plug 'b4winckler/vim-angry'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'thinca/vim-textobj-function-javascript'
-
-"""""""""""""""""""
-" Extra Vim Motions
-"""""""""""""""""""
-Plug 'christoomey/vim-sort-motion'
-Plug 'tpope/vim-commentary'
-
-""""""""""""""
-" Intellisense
-""""""""""""""
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-"""""""""""""""
-" Running tests
-"""""""""""""""
-Plug 'janko-m/vim-test'
-Plug 'kassio/neoterm'
-
-""""""""""""""""""""
-" Linting and tidies
-""""""""""""""""""""
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'pseewald/vim-anyfold'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'w0rp/ale'
-
-""""""""""""""""""""
-" tpope <3
-""""""""""""""""""""
-" Asynchronous arbitrary shell execution
-Plug 'tpope/vim-dispatch'
-" Automatically terminate ( ), do end, { } etc
-Plug 'tpope/vim-endwise'
-" Git integrations
-Plug 'tpope/vim-fugitive'
-" Alternate file trees - useful for quick navigation between files - i.e. from a model to it's test file, schema, etc
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rails'
-" Support for repeating vim-surround motions
-Plug 'tpope/vim-repeat'
-" Open browser with git object under cursor - context aware
-Plug 'tpope/vim-rhubarb'
-" C-A (increment) and C-X (decrement) support for dates and times
-Plug 'tpope/vim-speeddating'
-" Navigate quickfix with ]q (next) [q (previous) entry shortcut
-Plug 'tpope/vim-unimpaired'
-" Change, add and delete surrounding characters around a target object
-Plug 'tpope/vim-surround'
-
-"""""""""""""""""""""
-" Must be loaded last
-"""""""""""""""""""""
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'morhetz/gruvbox'                                             | " Theme
+Plug 'sainnhe/gruvbox-material'                                    | " Theme
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
+Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
+Plug 'junegunn/vim-easy-align'                                     | " Align stuff
+Plug 'preservim/nerdtree'                                          | " File tree navigator
+Plug 'rking/ag.vim'                                                | " Grep into quickfix
+Plug 'stefandtw/quickfix-reflector.vim'                            | " Make quickfix writeable - useful for find and replace
+Plug 'sheerun/vim-polyglot'                                        | " Language syntax highlighting
+Plug 'tpope/vim-bundler'                                           | " Gemfile syntax highlighting
+Plug 'kana/vim-textobj-user'                                       | " Api for textobj creation
+Plug 'kana/vim-textobj-line'                                       | " Line textobj
+Plug 'b4winckler/vim-angry'                                        | " Argument textobj
+Plug 'glts/vim-textobj-comment'                                    | " Comment textobj
+Plug 'michaeljsmith/vim-indent-object'                             | " Indent textobj
+Plug 'tek/vim-textobj-ruby'                                        | " Ruby function and class textobj
+Plug 'bps/vim-textobj-python'                                      | " Python function and class textobj
+Plug 'mattn/vim-textobj-url'                                       | " URI textobj
+Plug 'christoomey/vim-sort-motion'                                 | " Sort motion
+Plug 'tpope/vim-commentary'                                        | " Comment motion
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} | " Intellisense
+Plug 'vim-test/vim-test'                                           | " Run tests
+Plug 'pseewald/vim-anyfold'                                        | " Language aware folds
+Plug 'tpope/vim-dispatch'                                          | " Asynchronous arbitrary shell execution
+Plug 'tpope/vim-endwise'                                           | " Automatically terminate ( ), do end, { } etc
+Plug 'tpope/vim-fugitive'                                          | " Git integrations
+Plug 'tpope/vim-repeat'                                            | " Support for repeating vim-surround motions
+Plug 'tpope/vim-rhubarb'                                           | " Open browser with git object under cursor - context aware
+Plug 'tpope/vim-unimpaired'                                        | " Navigate quickfix with ]q (next) [q (previous) entry shortcut
+Plug 'tpope/vim-surround'                                          | " Change, add and delete surrounding characters around a target object
 
 call plug#end()
 
