@@ -10,6 +10,12 @@ mkdir -p ~/.local/share/nvim/site/autoload/
 ln -sf $(pwd)/init.vim $INIT_NVIM
 ln -sf $(pwd)/init.vim $INIT_VIM
 
+COC_NVIM=~/.config/nvim/coc-settings.json
+COC_VIM=~/.vim/coc-settings.json
+
+[[ -f $COC_NVIM ]] || ln -sf $(pwd)/coc-settings.json $COC_NVIM
+[[ -f $COC_VIM ]] || ln -sf $(pwd)/coc-settings.json $COC_VIM
+
 PLUG_GIT=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 PLUG_INSTALL_DIR=~/.plug
 PLUG_NVIM=~/.local/share/nvim/site/autoload/plug.vim

@@ -1,0 +1,45 @@
+{
+  "suggest.noselect": false,
+  "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "Markdown",
+    "markdown",
+    "markdownlint",
+    "go",
+    "gomod",
+    "python",
+    "ruby",
+    "typescript",
+    "terraform",
+    "typescript.tsx",
+    "typescriptreact",
+    "yaml"
+  ],
+  "python.linting.enabled": false,
+  "python.linting.pylintPath": "/Users/william/.asdf/shims/pylint",
+  "python.formatting.provider": "yapf",
+  "yaml.format.enable": true,
+  "yaml.schemas": {
+    "http://json.schemastore.org/swagger-2.0": "swagger.yaml"
+  },
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "markdownlint.onOpen": false,
+  "markdownlint.onChange": false,
+  "markdownlint.onSave": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "hcl"
+      ],
+      "initializationOptions": {}
+    }
+  }
+}
