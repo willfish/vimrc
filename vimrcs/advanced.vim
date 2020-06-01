@@ -1,5 +1,5 @@
 let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache -l -g ""' | " FZF: Speed up agging files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache --ignore temp_dirs -l -g ""' | " FZF: Speed up agging files
 
 nnoremap <C-f> :FzfFiles<CR>
 nnoremap <C-g> :FzfAg<CR>
