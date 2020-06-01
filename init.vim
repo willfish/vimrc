@@ -3,13 +3,14 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 let g:ruby_path = []
+let g:mapleader = ','
 
-let s:plugs = '~/.vim_runtime/vimrcs/plugs.vim'
 let s:basic = '~/.vim_runtime/vimrcs/basic.vim'
+let s:plugs = '~/.vim_runtime/vimrcs/plugs.vim'
 let s:advanced = '~/.vim_runtime/vimrcs/advanced.vim'
 
-execute 'source' s:plugs
 execute 'source' s:basic
+execute 'source' s:plugs
 execute 'source' s:advanced
 
 inoremap jk <esc>

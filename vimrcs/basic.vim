@@ -1,164 +1,64 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General settings
 
-set termguicolors
-try
-  colorscheme palenight
-catch
-endtry
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Generic settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('gui_macvim')
-  set clipboard=unnamed
-  set hlsearch
-
-  " Move current window more easily
-  nnoremap <silent> <M-Up> :wincmd k<CR>
-  nnoremap <silent> <M-Down> :wincmd j<CR>
-  nnoremap <silent> <M-Left> :wincmd h<CR>
-  nnoremap <silent> <M-Right> :wincmd l<CR>
-else
-  set clipboard+=unnamedplus
-  nnoremap <silent> <A-Up> :wincmd k<CR>
-  nnoremap <silent> <A-Down> :wincmd j<CR>
-  nnoremap <silent> <A-Left> :wincmd h<CR>
-  nnoremap <silent> <A-Right> :wincmd l<CR>
-endif
-
-" set shell=fish
-set mouse=a
-
-" Sets how many lines of history VIM has to remember
-set history=500
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let g:mapleader = ','
-
-" Show special characters
-set list
-
-nnoremap <Space> za
-
-" Fast saving/quitting
-
-nnoremap <silent> <leader>w :w!<cr>
-nnoremap <silent> <leader>Q :q!<cr>
-nnoremap <silent> <leader>q :wq!<cr>
-
-" Fast splitting
-
-nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader>h :split<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
-set scrolloff=7
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build
-
-" A buffer becomes hidden when it is abandoned
-set hidden
-set whichwrap+=<,>,h,l
-set smartcase
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set matchtime=2
-set timeoutlen=500
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git etc anyway...
-set nobackup
-set nowritebackup
-set noswapfile
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-
-" 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
-
-" Linebreak on 500 characters
-set linebreak
-set textwidth=500
-
+set clipboard+=unnamedplus | " Use os clipboard for copy and paste
+set expandtab              | " Use spaces instead of tabs
+set hidden                 | " A buffer becomes hidden when it is abandoned
+set history=200            | " Limit history for commands, etc - default is 100000
+set lazyredraw             | " Don't redraw while executing macros (good performance config)
+set linebreak              | " Linebreak on 500 characters
+set list                   | " Show special characters
+set number
+set relativenumber
+set scrolloff=7            | " Set 7 lines to the cursor - when moving vertically using j/k
+set shiftwidth=2           | " 1 tab == 4 spaces
+set shell=fish             | " 1 tab == 4 spaces
+set showmatch              | " Show matching brackets when text indicator is over them
 set smartindent
-set wrap "Wrap lines
+set splitright             | " Split right
+set tabstop=2              | " 1 tab == 4 spaces
+set termguicolors          | " Enables 24-bit RGB color in the TUI
+set textwidth=500          | " Linebreak on 500 characters
+set undodir=~/.vim_runtime/temp_dirs/undodir
+set undofile
+set wrap                   | " Wrap lines
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup
+set noswapfile
+set nowritebackup
+set dir=/tmp
 
-" Return to last edit position when opening files (You want this!)
-augroup preserve_last_position
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-augroup END
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build,*.o,*~,*.pyc | " Ignore version control and os files
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»  | " Show special characters
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Switch 0 and ^ functionality
+nnoremap <silent> <Space> za
+nnoremap <silent> <leader>w :w!<cr>
+nnoremap <silent> <leader>q :wq!<cr>
+nnoremap <silent> <leader>v :vsplit<cr>
+nnoremap <silent> <M-Up> :wincmd k<CR>
+nnoremap <silent> <M-Down> :wincmd j<CR>
+nnoremap <silent> <M-Left> :wincmd h<CR>
+nnoremap <silent> <M-Right> :wincmd l<CR>
 nnoremap 0 ^
 nnoremap ^ 0
 
-if has('mac') || has('macunix')
-  nnoremap <D-j> <M-j>
-  nnoremap <D-k> <M-k>
-  nnoremap <D-j> <M-j>
-  nnoremap <D-k> <M-k>
-endif
+" Multiple replace with s*
+" hit . to repeatedly replace a change to the word under the cursor
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set relativenumber
-set number
-
-highlight WhiteOnRed ctermbg=white guibg=red
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on
-"    means that you can undo even when you close a buffer/VIM
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-try
-  set undodir=~/.vim_runtime/temp_dirs/undodir
-  set undofile
-catch
-endtry
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup preserve_last_position
+  " Return to last edit position when opening files (You want this!)
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
+
+augroup helpfiles
+  " Enable q to quit file
+  autocmd FileType help nnoremap q :q<CR>
+augroup END
+
 function! CmdLine(str)
   exe 'menu Foo.Bar :' . a:str
   emenu Foo.Bar
