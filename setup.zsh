@@ -1,5 +1,8 @@
 #! /usr/bin/env zsh
 
+THIS=$(pwd)
+RUNTIME=~/.vim_runtime
+
 INIT_NVIM=~/.config/nvim/init.vim
 INIT_VIM=~/.vimrc
 
@@ -17,11 +20,11 @@ mkdir -p ~/.local/share/nvim/site/autoload/
 
 curl -fLso $PLUG_INSTALL_DIR --create-dirs $PLUG_GIT
 
-ln -sf $(pwd)/init.vim $INIT_NVIM
-ln -sf $(pwd)/init.vim $INIT_VIM
+ln -sf $THIS/init.vim $INIT_NVIM
+ln -sf $THIS/init.vim $INIT_VIM
 
-ln -sf $(pwd)/coc-settings.json $COC_NVIM
-ln -sf $(pwd)/coc-settings.json $COC_VIM
+ln -sf $THIS/coc-settings.json $COC_NVIM
+ln -sf $THIS/coc-settings.json $COC_VIM
 
 ln -sf $PLUG_INSTALL_DIR $PLUG_NVIM
 ln -sf $PLUG_INSTALL_DIR $PLUG_VIM
@@ -30,6 +33,5 @@ ln -sf $PLUG_INSTALL_DIR $PLUG_VIM
 # if the file in the current directory does not exist
 #
 # This could be a bug in ln
-[[ -f ~/.vim_runtime ]] && rm -f ~/.vim_runtime
-
-ln -sf $(pwd) ~/.vim_runtime
+[[ -L $RUNTIME ]] && rm -f $RUNTIME
+ln -sf $THIS $RUNTIME
