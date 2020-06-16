@@ -1,21 +1,20 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fzf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache --ignore temp_dirs -l -g ""' | " FZF: Speed up agging files
 
 nnoremap <C-f> :FzfFiles<CR>
 nnoremap <C-g> :FzfAg<CR>
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ag
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>g :Ag<space>
 
-let g:NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinSize=35
-
-noremap <leader>n :NERDTreeToggle<cr> | " NerdTree: Open NerdTree
-noremap <leader>nf :NERDTreeFind<cr>  | " NerdTree: Open active buffer in NerdTree
-
-augroup nerdtree
-  autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-  autocmd VimEnter * wincmd w
-augroup END
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => anyfold
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup anyfold
   autocmd Filetype * AnyFoldActivate
@@ -46,13 +45,13 @@ nnoremap <silent> <Leader>l :TestVisit<CR>
 " => vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <silent> <Leader>i :Git<space>
-noremap <silent> <Leader>b :Gblame<CR>
-noremap <silent> <Leader>o :Gbrowse<CR>
-noremap <silent> <Leader>s :Gstatus<CR>
-noremap <silent> <Leader>] :Gpush<CR>
-noremap <silent> <Leader>[ :Gpull<CR>
-noremap <silent> <Leader>c :Gcommit<CR>
+nnoremap <silent> <Leader>i :Git<space>
+nnoremap <silent> <Leader>b :Gblame<CR>
+nnoremap <silent> <Leader>o :Gbrowse<CR>
+nnoremap <silent> <Leader>s :Gstatus<CR>
+nnoremap <silent> <Leader>] :Gpush<CR>
+nnoremap <silent> <Leader>[ :Gpull<CR>
+nnoremap <silent> <Leader>c :Gcommit<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc-vim
@@ -67,6 +66,7 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-docker',
       \ 'coc-elixir',
+      \ 'coc-explorer',
       \ 'coc-fish',
       \ 'coc-go',
       \ 'coc-html',
@@ -86,7 +86,7 @@ let g:coc_global_extensions = [
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> grn <Plug>(coc-rename)
+nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> <leader>f <Plug>(coc-format)
 
 inoremap <silent><expr> <TAB>
@@ -100,22 +100,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" " Show all diagnostics.
-" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" " Manage extensions.
-" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" " Show commands.
-" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" " Find symbol of current document.
-" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" " Search workspace symbols.
-" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" " Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" " Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" " Resume latest coc list.
-" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><leader>n :CocCommand explorer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-easy-align

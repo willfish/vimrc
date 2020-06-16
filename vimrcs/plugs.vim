@@ -8,7 +8,6 @@ Plug 'sainnhe/gruvbox-material'                                    | " Theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
 Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
 Plug 'junegunn/vim-easy-align'                                     | " Align stuff
-Plug 'preservim/nerdtree'                                          | " File tree navigator
 Plug 'rking/ag.vim'                                                | " Grep into quickfix
 Plug 'stefandtw/quickfix-reflector.vim'                            | " Make quickfix writeable - useful for find and replace
 Plug 'sheerun/vim-polyglot'                                        | " Language syntax highlighting

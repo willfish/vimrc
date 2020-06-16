@@ -34,6 +34,7 @@ nnoremap <silent> <Space> za
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>q :wq!<cr>
 nnoremap <silent> <leader>v :vsplit<cr>
+nnoremap <silent> <leader><leader> :only<cr>
 nnoremap <silent> <M-Up> :wincmd k<CR>
 nnoremap <silent> <M-Down> :wincmd j<CR>
 nnoremap <silent> <M-Left> :wincmd h<CR>

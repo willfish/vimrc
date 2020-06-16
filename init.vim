@@ -14,6 +14,7 @@ execute 'source' s:plugs
 execute 'source' s:advanced
 
 inoremap jk <esc>
+inoremap kj <esc>
 
 if has('nvim')
   tnoremap jk <C-\><C-n>

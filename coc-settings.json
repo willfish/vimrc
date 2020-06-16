@@ -20,11 +20,14 @@
     "yaml"
   ],
   "python.linting.enabled": false,
+  "python.jediEnabled": false,
   "python.linting.pylintPath": "/Users/william/.asdf/shims/pylint",
   "python.formatting.provider": "yapf",
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "http://json.schemastore.org/swagger-2.0": "swagger.yaml"
+    "http://json.schemastore.org/swagger-2.0": "swagger.yaml",
+    "https://jsonapi.org/schema": "swagger/**/*",
+    "https://json.schemastore.org/circleciconfig": ".circleci/config.yml"
   },
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
@@ -34,12 +37,17 @@
   "markdownlint.onSave": true,
   "languageserver": {
     "terraform": {
-      "command": "terraform-lsp",
+      "command": "terraform-ls",
+      "args": [
+        "serve",
+        "-tf-exec=/Users/william/.asdf/shims/terraform"
+      ],
       "filetypes": [
         "terraform",
-        "hcl"
+        "tf"
       ],
-      "initializationOptions": {}
+      "initializationOptions": {},
+      "settings": {}
     }
   }
 }
