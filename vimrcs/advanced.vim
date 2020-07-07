@@ -2,19 +2,24 @@
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
+let g:fzf_buffers_jump = 1
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache --ignore temp_dirs -l -g ""' | " FZF: Speed up agging files
 
-nnoremap <C-f> :FzfFiles<CR>
-nnoremap <C-g> :FzfAg<CR>
+nnoremap <C-p> :FzfFiles<CR>
+" Map <C-r> back to redo
+nnoremap <C-r> :redo<CR>
+nnoremap <C-f> :FzfAg<CR>
+nnoremap <C-b> :FzfBuffers<CR>
+
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ag
+" => ack
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>g :Ag<space>
+nnoremap <leader>g :Ack<space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup anyfold
   autocmd Filetype * AnyFoldActivate

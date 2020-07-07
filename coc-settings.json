@@ -36,6 +36,16 @@
   "markdownlint.onChange": false,
   "markdownlint.onSave": true,
   "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "go"
+      ]
+    },
     "terraform": {
       "command": "terraform-ls",
       "args": [
