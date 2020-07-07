@@ -13,7 +13,7 @@ Portable neovim configuration configured for MacOS.
 ## Setup
 
 ```bash
-git clone http://github.com/willfish/vimrc.git ~/<path/to/repos>
+git clone http://github.com/parkwherever/vimrc.git ~/<path/to/repos>
 cd ~/path/to/repos/vimrc
 ./setup.sh
 ```
