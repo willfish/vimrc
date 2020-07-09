@@ -5,11 +5,10 @@ set shell=bash
 call plug#begin('~/.vim_runtime/plugged/')
 
 Plug 'sainnhe/gruvbox-material'                                    | " Theme
+Plug 'skbolton/embark'                                             | " Theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
 Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
 Plug 'junegunn/vim-easy-align'                                     | " Align stuff
-Plug 'rking/ag.vim'                                                | " Grep into quickfix
-Plug 'stefandtw/quickfix-reflector.vim'                            | " Make quickfix writeable - useful for find and replace
 Plug 'sheerun/vim-polyglot'                                        | " Language syntax highlighting
 Plug 'tpope/vim-bundler'                                           | " Gemfile syntax highlighting
 Plug 'kana/vim-textobj-user'                                       | " Api for textobj creation
@@ -32,6 +31,7 @@ Plug 'tpope/vim-repeat'                                            | " Support f
 Plug 'tpope/vim-rhubarb'                                           | " Open browser with git object under cursor - context aware
 Plug 'tpope/vim-unimpaired'                                        | " Navigate quickfix with ]q (next) [q (previous) entry shortcut
 Plug 'tpope/vim-surround'                                          | " Change, add and delete surrounding characters around a target object
+Plug 'unblevable/quick-scope'                                      | " Faster f, F, t amd T navigations
 
 call plug#end()
 

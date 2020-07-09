@@ -1,4 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => quickscope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
@@ -7,10 +13,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache
 nnoremap <C-f> :FzfFiles<CR>
 nnoremap <C-g> :FzfAg<CR>
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ag
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>g :Ag<space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
@@ -48,6 +50,7 @@ nnoremap <silent> <Leader>l :TestVisit<CR>
 nnoremap <silent> <Leader>i :Git<space>
 nnoremap <silent> <Leader>b :Gblame<CR>
 nnoremap <silent> <Leader>o :Gbrowse<CR>
+vnoremap <silent> <Leader>o :Gbrowse<CR>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>] :Gpush<CR>
 nnoremap <silent> <Leader>[ :Gpull<CR>
@@ -86,6 +89,7 @@ let g:coc_global_extensions = [
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>g :CocSearch<space>
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> <leader>f <Plug>(coc-format)
 
@@ -114,4 +118,4 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 " => gruvbox
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox-material
+colorscheme embark

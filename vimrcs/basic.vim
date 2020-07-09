@@ -25,20 +25,20 @@ set wrap                   | " Wrap lines
 set nobackup
 set noswapfile
 set nowritebackup
-set dir=/tmp
 
 set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build,*.o,*~,*.pyc | " Ignore version control and os files
-set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»  | " Show special characters
+" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»  | " Show special characters
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
 
 nnoremap <silent> <Space> za
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>q :wq!<cr>
 nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader><leader> :only<cr>
-nnoremap <silent> <M-Up> :wincmd k<CR>
-nnoremap <silent> <M-Down> :wincmd j<CR>
-nnoremap <silent> <M-Left> :wincmd h<CR>
-nnoremap <silent> <M-Right> :wincmd l<CR>
+nnoremap <silent> ˚ :wincmd k<CR>
+nnoremap <silent> ∆ :wincmd j<CR>
+nnoremap <silent> ˙ :wincmd h<CR>
+nnoremap <silent> ¬ :wincmd l<CR>
 nnoremap 0 ^
 nnoremap ^ 0
 
