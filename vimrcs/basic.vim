@@ -21,6 +21,7 @@ set textwidth=500          | " Linebreak on 500 characters
 set undodir=~/.vim_runtime/temp_dirs/undodir
 set undofile
 set wrap                   | " Wrap lines
+set colorcolumn=120
 
 set nobackup
 set noswapfile
@@ -35,6 +36,7 @@ nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>q :wq!<cr>
 nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader><leader> :only<cr>
+nnoremap <silent> <leader>` <c-w>=
 nnoremap <silent> ˚ :wincmd k<CR>
 nnoremap <silent> ∆ :wincmd j<CR>
 nnoremap <silent> ˙ :wincmd h<CR>

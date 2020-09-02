@@ -2,19 +2,22 @@
   "suggest.noselect": false,
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.formatOnSaveFiletypes": [
+    "Markdown",
+    "coc-cfn-lint",
     "css",
+    "go",
+    "gomod",
+    "html",
     "javascript",
     "javascriptreact",
     "json",
-    "Markdown",
     "markdown",
     "markdownlint",
-    "go",
-    "gomod",
     "python",
     "ruby",
-    "typescript",
+    "sql",
     "terraform",
+    "typescript",
     "typescript.tsx",
     "typescriptreact",
     "yaml"
@@ -34,20 +37,5 @@
   "solargraph.hover": true,
   "markdownlint.onOpen": false,
   "markdownlint.onChange": false,
-  "markdownlint.onSave": true,
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-      "args": [
-        "serve",
-        "-tf-exec=/Users/william/.asdf/shims/terraform"
-      ],
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
-  }
+  "markdownlint.onSave": true
 }

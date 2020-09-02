@@ -1,3 +1,7 @@
+let g:dbs = {
+\  'dev': 'rails:.'
+\ }
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => quickscope
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -10,9 +14,8 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache --ignore temp_dirs -l -g ""' | " FZF: Speed up agging files
 
-nnoremap <C-f> :FzfFiles<CR>
+nnoremap <silent> <C-f> :FzfFiles<CR>
 nnoremap <C-g> :FzfAg<CR>
-"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
@@ -66,6 +69,7 @@ set shortmess+=c
 set signcolumn=yes
 
 let g:coc_global_extensions = [
+      \ 'coc-cfn-lint',
       \ 'coc-css',
       \ 'coc-docker',
       \ 'coc-elixir',
@@ -79,8 +83,10 @@ let g:coc_global_extensions = [
       \ 'coc-pairs',
       \ 'coc-python',
       \ 'coc-rls',
+      \ 'coc-sh',
       \ 'coc-snippets',
       \ 'coc-solargraph',
+      \ 'coc-sql',
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
@@ -118,4 +124,4 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 " => gruvbox
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme embark
+colorscheme gruvbox-material
