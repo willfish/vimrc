@@ -38,10 +38,13 @@ nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader><leader> :only<cr>
 nnoremap <silent> <leader>` <c-w>=
 if has('unix')
-  nnoremap <silent> <A-k> :wincmd k<CR>
-  nnoremap <silent> <A-j> :wincmd j<CR>
-  nnoremap <silent> <A-h> :wincmd h<CR>
-  nnoremap <silent> <A-l> :wincmd l<CR>
+  " In ubuntu I use awesome window manager and navigate between tiles using these keys
+  " Keeping for reference
+
+  " nnoremap <silent> <A-k> :wincmd k<CR>
+  " nnoremap <silent> <A-j> :wincmd j<CR>
+  " nnoremap <silent> <A-h> :wincmd h<CR>
+  " nnoremap <silent> <A-l> :wincmd l<CR>
 else
   nnoremap <silent> ˚ :wincmd k<CR>
   nnoremap <silent> ∆ :wincmd j<CR>
