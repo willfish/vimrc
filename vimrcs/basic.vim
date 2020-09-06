@@ -37,10 +37,17 @@ nnoremap <silent> <leader>q :wq!<cr>
 nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader><leader> :only<cr>
 nnoremap <silent> <leader>` <c-w>=
-nnoremap <silent> ˚ :wincmd k<CR>
-nnoremap <silent> ∆ :wincmd j<CR>
-nnoremap <silent> ˙ :wincmd h<CR>
-nnoremap <silent> ¬ :wincmd l<CR>
+if has('unix')
+  nnoremap <silent> <A-k> :wincmd k<CR>
+  nnoremap <silent> <A-j> :wincmd j<CR>
+  nnoremap <silent> <A-h> :wincmd h<CR>
+  nnoremap <silent> <A-l> :wincmd l<CR>
+else
+  nnoremap <silent> ˚ :wincmd k<CR>
+  nnoremap <silent> ∆ :wincmd j<CR>
+  nnoremap <silent> ˙ :wincmd h<CR>
+  nnoremap <silent> ¬ :wincmd l<CR>
+endif
 nnoremap 0 ^
 nnoremap ^ 0
 
