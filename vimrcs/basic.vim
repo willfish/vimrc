@@ -52,6 +52,9 @@ xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+vnoremap <leader>d c<c-r>=system('base64 --decode', @")<cr><esc>
+vnoremap <leader>e c<c-r>=system('base64', @")<cr><esc>
+
 augroup preserve_last_position
   " Return to last edit position when opening files (You want this!)
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
