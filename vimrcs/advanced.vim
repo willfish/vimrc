@@ -71,6 +71,7 @@ set signcolumn=yes
 let g:coc_global_extensions = [
       \ 'coc-cfn-lint',
       \ 'coc-css',
+      \ 'coc-emoji',
       \ 'coc-docker',
       \ 'coc-elixir',
       \ 'coc-explorer',
@@ -83,7 +84,8 @@ let g:coc_global_extensions = [
       \ 'coc-markdownlint',
       \ 'coc-pairs',
       \ 'coc-python',
-      \ 'coc-rls',
+      \ 'coc-rust-analyzer',
+      \ 'coc-r-lsp',
       \ 'coc-sh',
       \ 'coc-snippets',
       \ 'coc-solargraph',
@@ -126,3 +128,9 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 colorscheme gruvbox-material
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => lsp_extensions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
