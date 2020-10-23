@@ -1,13 +1,3 @@
-let g:dbs = {
-\  'dev': 'rails:.'
-\ }
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => quickscope
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -16,6 +6,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache
 
 nnoremap <silent> <C-f> :FzfFiles<CR>
 nnoremap <C-g> :FzfAg<CR>
+nnoremap gb :FzfGBranches<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
@@ -53,7 +44,6 @@ nnoremap <silent> <Leader>l :TestVisit<CR>
 nnoremap <silent> <Leader>i :Git<space>
 nnoremap <silent> <Leader>b :Gblame<CR>
 nnoremap <silent> <Leader>o :Gbrowse<CR>
-vnoremap <silent> <Leader>o :Gbrowse<CR>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>] :Gpush<CR>
 nnoremap <silent> <Leader>[ :Gpull<CR>
@@ -101,6 +91,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>g :CocSearch<space>
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> <leader>f <Plug>(coc-format)
+nmap <silent> <leader>d :CocDiagnostics<cr>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :

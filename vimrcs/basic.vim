@@ -29,7 +29,8 @@ set nowritebackup
 
 set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build,*.o,*~,*.pyc | " Ignore version control and os files
 " set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»  | " Show special characters
-set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
+" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
+set listchars=tab:→\ ,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
 
 nnoremap <silent> <Space> za
 nnoremap <silent> <leader>w :w!<cr>

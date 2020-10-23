@@ -9,6 +9,7 @@ Plug 'skbolton/embark'                                             | " Theme
 Plug 'vim-airline/vim-airline'                                     | " Status bar visuals
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
 Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'junegunn/vim-easy-align'                                     | " Align stuff
 Plug 'sheerun/vim-polyglot'                                        | " Language syntax highlighting
 Plug 'tpope/vim-bundler'                                           | " Gemfile syntax highlighting
@@ -32,7 +33,6 @@ Plug 'tpope/vim-rhubarb'                                           | " Open brow
 Plug 'tpope/vim-unimpaired'                                        | " Navigate quickfix with ]q (next) [q (previous) entry shortcut
 Plug 'tpope/vim-surround'                                          | " Change, add and delete surrounding characters around a target object
 Plug 'tpope/vim-rails'                                             | " Rails support
-Plug 'unblevable/quick-scope'                                      | " Faster f, F, t amd T navigations
 
 call plug#end()
 
