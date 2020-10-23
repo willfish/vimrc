@@ -3,6 +3,7 @@
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.formatOnSaveFiletypes": [
     "Markdown",
+    "R",
     "coc-cfn-lint",
     "css",
     "go",
@@ -15,6 +16,7 @@
     "markdownlint",
     "python",
     "ruby",
+    "rust",
     "sql",
     "terraform",
     "typescript",
