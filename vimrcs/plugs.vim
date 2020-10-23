@@ -31,11 +31,8 @@ Plug 'tpope/vim-repeat'                                            | " Support f
 Plug 'tpope/vim-rhubarb'                                           | " Open browser with git object under cursor - context aware
 Plug 'tpope/vim-unimpaired'                                        | " Navigate quickfix with ]q (next) [q (previous) entry shortcut
 Plug 'tpope/vim-surround'                                          | " Change, add and delete surrounding characters around a target object
+Plug 'tpope/vim-rails'                                             | " Rails support
 Plug 'unblevable/quick-scope'                                      | " Faster f, F, t amd T navigations
-Plug 'mg979/vim-visual-multi'                                      | " Experimental: multiple cursors
-Plug 'tpope/vim-dadbod'                                            | " Experimental: multiple cursors
-Plug 'tpope/vim-rails'                                             | " Experimental: multiple cursors
-Plug 'kristijanhusak/vim-dadbod-ui'
 
 call plug#end()
 
