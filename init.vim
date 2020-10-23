@@ -6,10 +6,12 @@ let g:ruby_path = []
 let g:mapleader = ','
 
 let s:basic = '~/.vim_runtime/vimrcs/basic.vim'
+let s:setup = '~/.vim_runtime/vimrcs/setup.vim'
 let s:plugs = '~/.vim_runtime/vimrcs/plugs.vim'
 let s:advanced = '~/.vim_runtime/vimrcs/advanced.vim'
 
 execute 'source' s:basic
+execute 'source' s:setup
 execute 'source' s:plugs
 execute 'source' s:advanced
 
