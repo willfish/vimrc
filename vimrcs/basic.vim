@@ -1,70 +1,30 @@
 " => General settings
 
-set clipboard+=unnamedplus | " Use os clipboard for copy and paste
-set expandtab              | " Use spaces instead of tabs
-set hidden                 | " A buffer becomes hidden when it is abandoned
-set history=200            | " Limit history for commands, etc - default is 100000
-set lazyredraw             | " Don't redraw while executing macros (good performance config)
-set linebreak              | " Linebreak on 500 characters
-set list                   | " Show special characters
-set number
-set relativenumber
-set scrolloff=7            | " Set 7 lines to the cursor - when moving vertically using j/k
-set shiftwidth=2           | " 1 tab == 4 spaces
-set shell=fish             | " 1 tab == 4 spaces
-set showmatch              | " Show matching brackets when text indicator is over them
-set smartindent
-set splitright             | " Split right
-set tabstop=2              | " 1 tab == 4 spaces
-set termguicolors          | " Enables 24-bit RGB color in the TUI
-set textwidth=500          | " Linebreak on 500 characters
-set undodir=~/.vim_runtime/temp_dirs/undodir
-set undofile
-set wrap                   | " Wrap lines
-set colorcolumn=120
+lua require('basic').setup()
 
-set nobackup
-set noswapfile
-set nowritebackup
-
-set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build,*.o,*~,*.pyc | " Ignore version control and os files
-" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»  | " Show special characters
-" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
-set listchars=tab:→\ ,nbsp:␣,trail:•,eol:$,precedes:«,extends:»  | " Show special characters
-
-nnoremap <silent> <Space> za
-nnoremap <silent> <leader>w :w!<cr>
-nnoremap <silent> <leader>q :wq!<cr>
-nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader><leader> :only<cr>
-nnoremap <silent> <leader>` <c-w>=
-
-if has('macunix')
+if has('unix')
+  nnoremap <silent> <A-k> :wincmd k<CR>
+  nnoremap <silent> <A-j> :wincmd j<CR>
+  nnoremap <silent> <A-h> :wincmd h<CR>
+  nnoremap <silent> <A-l> :wincmd l<CR>
+else
   " These strange symbols are what you get when you type Alt+h/j/k/l together on Mac
   nnoremap <silent> ˚ :wincmd k<CR>
   nnoremap <silent> ∆ :wincmd j<CR>
   nnoremap <silent> ˙ :wincmd h<CR>
   nnoremap <silent> ¬ :wincmd l<CR>
-else
-  nnoremap <silent> <A-k> :wincmd k<CR>
-  nnoremap <silent> <A-j> :wincmd j<CR>
-  nnoremap <silent> <A-h> :wincmd h<CR>
-  nnoremap <silent> <A-l> :wincmd l<CR>
 endif
-
-nnoremap 0 ^
-nnoremap ^ 0
 
 " Multiple replace with s*
 " hit . to repeatedly replace a change to the word under the cursor
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+xnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+xnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-vnoremap <leader>d c<c-r>=system('base64 --decode', @")<cr><esc>
-vnoremap <leader>e c<c-r>=system('base64', @")<cr><esc>
+xnoremap <leader>d c<c-r>=system('base64 --decode', @")<cr><esc>
+xnoremap <leader>e c<c-r>=system('base64', @")<cr><esc>
 
 augroup preserve_last_position
   " Return to last edit position when opening files (You want this!)
