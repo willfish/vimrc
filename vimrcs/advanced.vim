@@ -1,12 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:fzf_command_prefix = 'Fzf' | " FZF: Set the prefix for exposed fzf commands
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore .terragrunt-cache --ignore temp_dirs -l -g ""' | " FZF: Speed up agging files
 
-nnoremap <silent> <C-f> :FzfFiles<CR>
-nnoremap <C-g> :FzfAg<CR>
-nnoremap gb :FzfGBranches<CR>
+nnoremap <silent> <C-f> :Telescope find_files<CR>
+nnoremap <silent> <C-g> :Telescope live_grep<CR>
+nnoremap <silent> <C-b> :Telescope git_branches<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
