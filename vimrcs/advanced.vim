@@ -61,63 +61,38 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 " => lsp_extensions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set shortmess+=c
 set completeopt=menuone,noinsert,noselect
 
 let g:diagnostic_enable_virtual_text = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-lua vim.cmd('packadd nvim-lspconfig')
-lua vim.cmd('packadd completion-nvim')
-lua vim.cmd('packadd diagnostic-nvim')
-
-lua require('lspconfig').bashls.setup{}
-lua require('lspconfig').dockerls.setup{}
-lua require('lspconfig').flow.setup{}
-lua require('lspconfig').html.setup{}
-lua require('lspconfig').jsonls.setup{}
-lua require('lspconfig').pyls.setup{}
-lua require('lspconfig').rust_analyzer.setup{}
-lua require('lspconfig').solargraph.setup{}
-lua require('lspconfig').sqlls.setup{}
-lua require('lspconfig').sumneko_lua.setup{}
-lua require('lspconfig').terraformls.setup{}
-lua require('lspconfig').tsserver.setup{}
-lua require('lspconfig').vimls.setup{}
-lua require('lspconfig').yamlls.setup{}
+lua require('advanced').setup()
 
 nnoremap <silent> <leader>a <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 autocmd BufEnter,BufWinEnter,TabEnter *.rs lua require'lsp_extensions'.inlay_hints{ aligned = true}
 autocmd BufEnter * lua require('completion').on_attach()
 autocmd BufEnter * lua require('diagnostic').on_attach()
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing message extra message when using completion
-set shortmess+=c
-
-command! LspReload :lua vim.lsp.stop_client(vim.lsp.get_active_clients()) | :edit
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => nerd tree
+" => lua tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent><leader>n :NERDTreeToggle<CR>
-nnoremap <silent><leader>nf :NERDTreeFind<cr>
+nnoremap <silent><leader>n :LuaTreeToggle<CR>
+nnoremap <silent><leader>nf :LuaTreeFindFile<cr>
 
- augroup nerdtree
-   " Enable q to nerdtree file
-   " autocmd FileType nerdtree nnoremap q :q<CR>
- augroup END
+augroup LuaTree
+  autocmd FileType LuaTree nnoremap q :q<CR>
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gruvbox
