@@ -2,19 +2,6 @@
 
 lua require('basic').setup()
 
-if has('unix')
-  nnoremap <silent> <A-k> :wincmd k<CR>
-  nnoremap <silent> <A-j> :wincmd j<CR>
-  nnoremap <silent> <A-h> :wincmd h<CR>
-  nnoremap <silent> <A-l> :wincmd l<CR>
-else
-  " These strange symbols are what you get when you type Alt+h/j/k/l together on Mac
-  nnoremap <silent> ˚ :wincmd k<CR>
-  nnoremap <silent> ∆ :wincmd j<CR>
-  nnoremap <silent> ˙ :wincmd h<CR>
-  nnoremap <silent> ¬ :wincmd l<CR>
-endif
-
 " Multiple replace with s*
 " hit . to repeatedly replace a change to the word under the cursor
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
@@ -58,3 +45,8 @@ function! VisualSelection(direction, extra_filter) range
   let @/ = l:pattern
   let @" = l:saved_reg
 endfunction
+
+augroup LuaYank
+  autocmd TextYankPost * silent! lua require('vim.highlight').on_yank()
+augroup END
+
