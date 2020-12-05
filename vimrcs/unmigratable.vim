@@ -1,7 +1,5 @@
 " => General settings
 
-lua require('basic').setup()
-
 " Multiple replace with s*
 " hit . to repeatedly replace a change to the word under the cursor
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
