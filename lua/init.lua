@@ -8,7 +8,6 @@ require('maps') -- Normal, Insert, Visual, Terminal mode mappings
 -- Advanced configuration
 require('plugins') -- Pack plugins
 require('advanced') -- Pack plugins configuration
-require('lsp_plugin_config') -- Language Server Protocol configuration (autocompletion, diagnostics, hover hints - think VSCode)
 
 -- Need to be migrated to lua <3
 vim.cmd('source ~/.vim_runtime/vimrcs/unmigratable.vim')
