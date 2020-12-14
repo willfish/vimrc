@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#! /usr/bin/env bash
 
 THIS=$(pwd)
 RUNTIME=~/.vim_runtime
@@ -15,3 +15,6 @@ ln -sf $THIS/init.vim $INIT_NVIM
 # This could be a bug in ln
 [[ -L $RUNTIME ]] && rm -f $RUNTIME
 ln -sf $THIS $RUNTIME
+
+git clone https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
