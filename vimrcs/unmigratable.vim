@@ -50,3 +50,35 @@ augroup LuaYank
   autocmd TextYankPost * silent! lua require('vim.highlight').on_yank()
 augroup END
 
+
+" Ale linter
+noremap <leader>a :ALEFix<CR>
+
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'ruby': ['rubocop'],
+      \   'javascript': ['eslint'],
+      \   'haml': ['haml-lint'],
+      \   'html': ['prettier'],
+      \   'yaml': ['prettier'],
+      \   'lua': ['luafmt'],
+      \   'json': ['prettier'],
+      \   'css': ['prettier'],
+      \   'scss': ['prettier'],
+      \   'markdown': ['prettier'],
+      \   'bash': ['shfmt'],
+      \   'sh': ['shfmt'],
+      \   'elixir': ['mix_format'],
+      \   'terraform': ['terraform']
+      \}
+
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_rubocop_options = '-c .rubocop.yml'
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_delay=2000
+
+" EasyAlign
+let g:easy_align_delimiters = {
+      \  '-': { 'pattern': '\-\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
+\ }
