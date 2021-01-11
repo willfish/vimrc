@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup anyfold
+  autocmd!
   autocmd Filetype * AnyFoldActivate
 augroup END | " Anyfold: Enable polyglot folds in every buffer type
 
@@ -14,7 +15,8 @@ set foldlevel=99 | " Anyfold: Open folds to 99 folds deep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup markdown
-  au FileType markdown vnoremap <CR> :EasyAlign*<Bar><CR>
+  autocmd!
+  autocmd FileType markdown vnoremap <CR> :EasyAlign*<Bar><CR>
 augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -25,8 +27,11 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-autocmd BufEnter,BufWinEnter,TabEnter *.rs lua require'lsp_extensions'.inlay_hints{ aligned = true}
-autocmd BufEnter * lua require('completion').on_attach()
+augroup lsp_extensions
+  autocmd!
+  autocmd BufEnter,BufWinEnter,TabEnter *.rs lua require'lsp_extensions'.inlay_hints{ aligned = true}
+  autocmd BufEnter * lua require('completion').on_attach()
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lua tree
@@ -36,6 +41,7 @@ nnoremap <silent><leader>n :NvimTreeToggle<CR>
 nnoremap <silent><leader>nf :NvimTreeFindFile<cr>
 
 augroup NvimTree
+  autocmd!
   autocmd FileType NvimTree nnoremap q :q<CR>
 augroup END
 
@@ -46,6 +52,7 @@ augroup END
 augroup Colors
   colorscheme gruvbox-material
 
+  autocmd!
   autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
   autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 augroup END

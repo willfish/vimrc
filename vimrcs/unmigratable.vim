@@ -1,5 +1,4 @@
 " => General settings
-
 " Multiple replace with s*
 " hit . to repeatedly replace a change to the word under the cursor
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
@@ -12,11 +11,13 @@ xnoremap <leader>d c<c-r>=system('base64 --decode', @")<cr><esc>
 xnoremap <leader>e c<c-r>=system('base64', @")<cr><esc>
 
 augroup preserve_last_position
+  autocmd!
   " Return to last edit position when opening files (You want this!)
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
 
 augroup helpfiles
+  autocmd!
   " Enable q to quit file
   autocmd FileType help nnoremap q :q<CR>
 augroup END
@@ -45,6 +46,7 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 augroup LuaYank
+  autocmd!
   autocmd TextYankPost * silent! lua require('vim.highlight').on_yank()
 augroup END
 
