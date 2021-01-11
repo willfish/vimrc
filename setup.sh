@@ -17,4 +17,4 @@ ln -sf $THIS/init.vim $INIT_NVIM
 ln -sf $THIS $RUNTIME
 
 git clone https://github.com/wbthomason/packer.nvim \
- ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
+  ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
