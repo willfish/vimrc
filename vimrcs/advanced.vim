@@ -32,11 +32,11 @@ autocmd BufEnter * lua require('completion').on_attach()
 " => lua tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent><leader>n :LuaTreeToggle<CR>
-nnoremap <silent><leader>nf :LuaTreeFindFile<cr>
+nnoremap <silent><leader>n :NvimTreeToggle<CR>
+nnoremap <silent><leader>nf :NvimTreeFindFile<cr>
 
-augroup LuaTree
-  autocmd FileType LuaTree nnoremap q :q<CR>
+augroup NvimTree
+  autocmd FileType NvimTree nnoremap q :q<CR>
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
