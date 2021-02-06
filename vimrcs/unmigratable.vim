@@ -56,20 +56,21 @@ noremap <leader>a :ALEFix<CR>
 
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'ruby': ['rubocop'],
-      \   'javascript': ['eslint'],
+      \   'bash': ['shfmt'],
+      \   'css': ['prettier'],
+      \   'elixir': ['mix_format'],
       \   'haml': ['haml-lint'],
       \   'html': ['prettier'],
-      \   'yaml': ['prettier'],
-      \   'lua': ['luafmt'],
+      \   'javascript': ['eslint'],
       \   'json': ['prettier'],
-      \   'css': ['prettier'],
-      \   'scss': ['prettier'],
+      \   'lua': ['luafmt'],
       \   'markdown': ['prettier'],
-      \   'bash': ['shfmt'],
+      \   'ruby': ['rubocop'],
+      \   'scss': ['prettier'],
       \   'sh': ['shfmt'],
-      \   'elixir': ['mix_format'],
-      \   'terraform': ['terraform']
+      \   'sql': ['pgformatter'],
+      \   'terraform': ['terraform'],
+      \   'yaml': ['prettier']
       \}
 
 let g:ale_ruby_rubocop_executable = 'bundle'
@@ -82,3 +83,57 @@ let g:ale_lint_delay=2000
 let g:easy_align_delimiters = {
       \  '-': { 'pattern': '\-\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
 \ }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => anyfold
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup anyfold
+  autocmd!
+  autocmd Filetype * AnyFoldActivate
+augroup END | " Anyfold: Enable polyglot folds in every buffer type
+
+let anyfold_fold_comments=1
+set foldlevel=99 | " Anyfold: Open folds to 99 folds deep
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup markdown
+  autocmd!
+  autocmd FileType markdown vnoremap <CR> :EasyAlign*<Bar><CR>
+augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => lsp_extensions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+augroup lsp_extensions
+  autocmd!
+  autocmd BufEnter,BufWinEnter,TabEnter *.rs lua require'lsp_extensions'.inlay_hints{ aligned = true}
+  autocmd BufEnter * lua require('completion').on_attach()
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CHADtree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <silent><leader>n :CHADopen<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => gruvbox
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup Colors
+  colorscheme gruvbox-material
+
+  autocmd!
+  autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+  autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+augroup END

@@ -18,4 +18,3 @@ require("advanced") -- Pack plugins configuration
 
 -- Need to be migrated to lua <3
 vim.cmd("source ~/.vim_runtime/vimrcs/unmigratable.vim")
-vim.cmd("source ~/.vim_runtime/vimrcs/advanced.vim")
