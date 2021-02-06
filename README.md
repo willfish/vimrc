@@ -37,7 +37,7 @@ Now open vim and run `:PackerInstall`
 
 I'm part way through a migration to 100% lua and still have a [vimrc] of to-be-migrated vimscript.
 
-## Custom Commands
+## Useful vim normal mappings
 
 A list of commands that I find useful and that it is worth you being aware of.
 
@@ -59,10 +59,6 @@ A list of commands that I find useful and that it is worth you being aware of.
 - `<leader>r`: Run all tests in current project.
 - `<leader>e`: Run last invocation of tests (nearest, current file, all).
 - `<leader>l`: Switch to last ran test file.
-
-## Plugins
-
-See [plugins] for descriptions of plugins I am using
 
 [init]:     https://github.com/willfish/vimrc/tree/master/lua/init.lua
 [maps]:     https://github.com/willfish/vimrc/tree/master/lua/maps.lua
