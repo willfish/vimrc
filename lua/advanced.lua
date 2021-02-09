@@ -1,5 +1,4 @@
 local default_map_opts = {noremap = true, silent = true}
-
 -- Ag (global text search)
 
 vim.api.nvim_set_keymap("n", "<Leader>g", ":Ag<space>", default_map_opts)
@@ -81,7 +80,7 @@ lspconfig.rust_analyzer.setup {on_attach = on_attach}
 lspconfig.solargraph.setup {on_attach = on_attach}
 lspconfig.sqlls.setup {on_attach = on_attach}
 lspconfig.terraformls.setup {on_attach = on_attach}
-lspconfig.tsserver.setup {on_attach = on_attach}
+lspconfig.flow.setup {on_attach = on_attach}
 lspconfig.vimls.setup {on_attach = on_attach}
 lspconfig.yamlls.setup {on_attach = on_attach}
 
@@ -103,6 +102,7 @@ lspconfig.sumneko_lua.setup {
         }
     }
 }
+
 
 -- completion.nvim
 
