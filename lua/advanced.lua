@@ -63,8 +63,8 @@ vim.api.nvim_set_keymap("n", "<Leader>b", ":Gblame<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>o", ":Gbrowse<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>s", ":Gstatus<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>c", ":Git commit<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>]", ":Gpush<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>[", ":Gpull<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>]", ":Git push<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>[", ":Git pull<CR>", default_map_opts)
 
 -- lspconfig
 
