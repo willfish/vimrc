@@ -95,7 +95,7 @@ augroup anyfold
 augroup END | " Anyfold: Enable polyglot folds in every buffer type
 
 let anyfold_fold_comments=1
-set foldlevel=99 | " Anyfold: Open folds to 99 folds deep
+set foldlevel=10 | " Anyfold: Open folds to 99 folds deep
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-easy-align
@@ -131,7 +131,7 @@ nnoremap <silent><leader>n :CHADopen<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup Colors
-  colorscheme gruvbox-material
+  colorscheme gruvbox
 
   autocmd!
   autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE

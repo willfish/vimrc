@@ -1,25 +1,41 @@
 local default_map_opts = {noremap = true, silent = true}
+
 -- Ag (global text search)
 
 vim.api.nvim_set_keymap("n", "<Leader>g", ":Ag<space>", default_map_opts)
 
 -- Telescope (file finder)
 
-local actions = require("telescope.actions")
-
-vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope find_files<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<C-g>", ":Telescope live_grep<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<C-b>", ":Telescope git_branches<CR>", default_map_opts)
-
 require("telescope").setup {
-    mappings = {
-        i = {
-            ["<esc>"] = actions.close,
-            ["<c-k>"] = actions.move_selection_next,
-            ["<c-j>"] = actions.move_selection_prev
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
         }
     }
 }
+
+require('telescope').load_extension('gh')
+require('telescope').load_extension('fzy_native')
+
+vim.api.nvim_set_keymap("n", "<C-f>",      ":lua require('telescope.builtin').find_files()<CR>",        default_map_opts)
+vim.api.nvim_set_keymap("n", "<C-g>",      ":lua require('telescope.builtin').live_grep()<CR>",         default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>",        default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fe", ":lua require('telescope.builtin').file_browser()<CR>",      default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fg", ":lua require('telescope.builtin').live_grep()<CR>",         default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fb", ":lua require('telescope.builtin').git_branches()<CR>",      default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fc", ":lua require('telescope.builtin').git_commits()<CR>",       default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fi", ":lua require('telescope').extensions.gh.issues()<CR>",      default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>fp", ":lua require('telescope').extensions.gh.pull_request()<CR>", default_map_opts)
+
+-- Treesitter
+
+require("nvim-treesitter.configs").setup {
+  highlight = {
+    enable = true
+  },
+}
+
 
 -- vim-test
 
@@ -46,7 +62,7 @@ vim.api.nvim_set_keymap("n", "<Leader>i", ":Git", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>b", ":Gblame<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>o", ":Gbrowse<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>s", ":Gstatus<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>c", ":Gcommit<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>c", ":Git commit<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>]", ":Gpush<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>[", ":Gpull<CR>", default_map_opts)
 
@@ -69,20 +85,20 @@ vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", defa
 vim.api.nvim_set_keymap("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", default_opts)
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_opts)
 
-lspconfig.bashls.setup {on_attach = on_attach}
-lspconfig.clangd.setup {on_attach = on_attach}
-lspconfig.dockerls.setup {on_attach = on_attach}
-lspconfig.gopls.setup {on_attach = on_attach}
-lspconfig.html.setup {on_attach = on_attach}
-lspconfig.jsonls.setup {on_attach = on_attach}
-lspconfig.pyls.setup {on_attach = on_attach}
-lspconfig.rust_analyzer.setup {on_attach = on_attach}
-lspconfig.solargraph.setup {on_attach = on_attach}
-lspconfig.sqlls.setup {on_attach = on_attach}
-lspconfig.terraformls.setup {on_attach = on_attach}
-lspconfig.flow.setup {on_attach = on_attach}
-lspconfig.vimls.setup {on_attach = on_attach}
-lspconfig.yamlls.setup {on_attach = on_attach}
+lspconfig.bashls.setup        { on_attach = on_attach}
+lspconfig.clangd.setup        { on_attach = on_attach}
+lspconfig.dockerls.setup      { on_attach = on_attach}
+lspconfig.gopls.setup         { on_attach = on_attach}
+lspconfig.html.setup          { on_attach = on_attach}
+lspconfig.jsonls.setup        { on_attach = on_attach}
+lspconfig.pyls.setup          { on_attach = on_attach}
+lspconfig.rust_analyzer.setup { on_attach = on_attach}
+lspconfig.solargraph.setup    { on_attach = on_attach}
+lspconfig.sqlls.setup         { on_attach = on_attach}
+lspconfig.terraformls.setup   { on_attach = on_attach}
+lspconfig.flow.setup          { on_attach = on_attach}
+lspconfig.vimls.setup         { on_attach = on_attach}
+lspconfig.yamlls.setup        { on_attach = on_attach}
 
 lspconfig.sumneko_lua.setup {
     cmd = {"lua-language-server"},
@@ -102,17 +118,3 @@ lspconfig.sumneko_lua.setup {
         }
     }
 }
-
-
--- completion.nvim
-
--- vim.o.completeopt = { "menuone" , "noinsert", "noselect" }
-
--- -- Don't show the dumb matching stuff.
--- vim.cmd [[set shortmess+=c]]
-
--- -- completion.nvim
--- vim.g.completion_confirm_key = ""
--- vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
--- -- vim.g.completion_enable_snippet = 'snippets.nvim'
---

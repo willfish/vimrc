@@ -23,7 +23,8 @@ end
 require("packer").startup(
     function()
         -- Look
-        use "sainnhe/gruvbox-material" -- Theme
+        use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} -- Theme with treesitter compatibility
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Symbolic syntax highlighting
         use "sheerun/vim-polyglot" -- Language syntax highlighting on steroids
         use "tpope/vim-bundler" -- Gemfile syntax highlighting
 
@@ -43,7 +44,9 @@ require("packer").startup(
         use "nvim-lua/lsp_extensions.nvim" -- Rust type annotations on every line
         use "nvim-lua/popup.nvim" -- Handy popup api written in lua
         use "nvim-lua/plenary.nvim" -- Brings in convenience functions for common lua behaviour
-        use "nvim-telescope/telescope.nvim" -- " Fuzzy list popups - branches, files, strings
+        use "nvim-telescope/telescope.nvim" -- Fuzzy list popups - branches, files, strings
+        use "nvim-telescope/telescope-github.nvim" -- Telescope integration for the github cli
+        use 'nvim-telescope/telescope-fzy-native.nvim' -- Compiled and significantly faster fzf sorter for telescope
         use "ms-jpq/chadtree.git" -- Amazing file tree written in lua
         use "euclidianAce/BetterLua.vim" -- More sophisticated lua syntax highlighting
 
