@@ -19,7 +19,7 @@ augroup END
 augroup helpfiles
   autocmd!
   " Enable q to quit file
-  autocmd FileType help nnoremap q :q<CR>
+  autocmd FileType help,qf,fugitive nnoremap q :q<CR>
 augroup END
 
 function! CmdLine(str)
