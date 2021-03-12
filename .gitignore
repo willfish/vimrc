@@ -2,3 +2,4 @@ plugged
 temp_dirs/undodir/*
 tags
 .DS_Store
+.nvimlog
