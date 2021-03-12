@@ -1,12 +1,12 @@
 local default_opts = {noremap = true, silent = true}
 
-local init_vim     = "~/.vim_runtime/init.vim"
-local init_lua     = "~/.vim_runtime/lua/init.lua"
-local opts         = "~/.vim_runtime/lua/opts.lua"
-local maps         = "~/.vim_runtime/lua/maps.lua"
+local init_vim = "~/.vim_runtime/init.vim"
+local init_lua = "~/.vim_runtime/lua/init.lua"
+local opts = "~/.vim_runtime/lua/opts.lua"
+local maps = "~/.vim_runtime/lua/maps.lua"
 local unmigratable = "~/.vim_runtime/vimrcs/unmigratable.vim"
-local plugins      = "~/.vim_runtime/lua/plugins.lua"
-local advanced     = "~/.vim_runtime/lua/advanced.lua"
+local plugins = "~/.vim_runtime/lua/plugins.lua"
+local advanced = "~/.vim_runtime/lua/advanced.lua"
 
 -- Config file normal maps
 vim.api.nvim_set_keymap("n", "<Leader>ev", ":edit" .. init_vim .. "<CR>", default_opts)
@@ -27,12 +27,14 @@ vim.api.nvim_set_keymap("n", "<Leader>w", ":w!<CR>", default_opts)
 vim.api.nvim_set_keymap("n", "<Leader>q", ":wq!<CR>", default_opts)
 vim.api.nvim_set_keymap("n", "<Leader>v", ":vsplit<CR>", default_opts)
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", ":only<CR>", default_opts)
+vim.api.nvim_set_keymap("n", "<Leader>.", ":copen<CR>", default_opts)
 vim.api.nvim_set_keymap("n", "<Leader>`", "<c-w>=", default_opts)
+vim.api.nvim_set_keymap("n", "<Leader>/", ":!%:p<CR>", default_opts)
 
 -- Insert mode maps
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", default_opts)
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", default_opts)
-
+--
 -- Terminal mode maps
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", default_opts)
 vim.api.nvim_set_keymap("t", "jj", "<C-\\><C-n>", default_opts)

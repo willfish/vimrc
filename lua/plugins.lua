@@ -46,12 +46,12 @@ require("packer").startup(
         use "nvim-lua/plenary.nvim" -- Brings in convenience functions for common lua behaviour
         use "nvim-telescope/telescope.nvim" -- Fuzzy list popups - branches, files, strings
         use "nvim-telescope/telescope-github.nvim" -- Telescope integration for the github cli
-        use 'nvim-telescope/telescope-fzy-native.nvim' -- Compiled and significantly faster fzf sorter for telescope
+        use "nvim-telescope/telescope-fzy-native.nvim" -- Compiled and significantly faster fzf sorter for telescope
         use "ms-jpq/chadtree.git" -- Amazing file tree written in lua
         use "euclidianAce/BetterLua.vim" -- More sophisticated lua syntax highlighting
 
         -- Vim in a browser - experimenting with this currently
-        use { 'glacambre/firenvim', run = ':call firenvim#install(0)' }
+        use {"glacambre/firenvim", run = ":call firenvim#install(0)"}
 
         -- Text objects and motions
         use "kana/vim-textobj-user" -- Api for textobj creation
