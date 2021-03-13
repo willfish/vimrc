@@ -7,12 +7,6 @@ vim.api.nvim_set_keymap("n", "<Leader>g", ":Ag<space>", default_map_opts)
 -- Telescope (file finder)
 
 require("telescope").setup {
-    extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true
-        }
-    },
     defaults = {
         file_sorter = require("telescope.sorters").get_fzy_sorter,
         prompt_prefix = " > ",
@@ -122,15 +116,18 @@ lspconfig.flow.setup {on_attach = on_attach}
 lspconfig.vimls.setup {on_attach = on_attach}
 lspconfig.yamlls.setup {on_attach = on_attach}
 
+local sumneko_root_path = "/home/" .. vim.fn.expand("$USER") .. "/.config/nvim/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
+
 lspconfig.sumneko_lua.setup {
-    cmd = {"lua-language-server"},
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
+            runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
             diagnostics = {
                 globals = {"vim"},
                 disable = {"lowercase-global", "unused-function", "undefined-global"}
             },
-            runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
             workspace = {
                 library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -141,3 +138,61 @@ lspconfig.sumneko_lua.setup {
     },
     on_attach = on_attach
 }
+
+lspconfig.efm.setup {
+    init_options = {documentFormatting = true},
+    filetypes = {"lua"},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            lua = {
+                {
+                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
+                    formatStdin = true
+                }
+            }
+        }
+    }
+}
+
+-- CHADtree
+
+vim.api.nvim_set_keymap("n", "<leader>n", ":CHADopen<CR>", default_map_opts)
+
+-- Ale
+
+vim.api.nvim_set_keymap("n", "<leader>a", ":ALEFix<CR>", default_map_opts)
+
+vim.g.ale_ruby_rubocop_executable = "bundle"
+vim.g.ale_ruby_rubocop_options = "-c .rubocop.yml"
+vim.g.ale_set_highlights = 0
+vim.g.ale_lint_delay = 2000
+
+local ale_fixers = {}
+
+ale_fixers["*"] = {"remove_trailing_lines", "trim_whitespace"}
+ale_fixers["bash"] = {"shfmt"}
+ale_fixers["css"] = {"prettier"}
+ale_fixers["elixir"] = {"mix_format"}
+ale_fixers["haml"] = {"haml-lint"}
+ale_fixers["html"] = {"prettier"}
+ale_fixers["javascript"] = {"eslint"}
+ale_fixers["json"] = {"prettier"}
+ale_fixers["lua"] = {"luafmt"}
+ale_fixers["markdown"] = {"prettier"}
+ale_fixers["ruby"] = {"rubocop"}
+ale_fixers["scss"] = {"prettier"}
+ale_fixers["sh"] = {"shfmt"}
+ale_fixers["sql"] = {"pgformatter"}
+ale_fixers["terraform"] = {"terraform"}
+ale_fixers["yaml"] = {"prettier"}
+
+vim.g.ale_fixers = ale_fixers
+
+-- EasyAlign
+
+local easy_align_delimiters = {}
+
+easy_align_delimiters["-"] = {pattern = "\\-\\+", delimiter_align = "l", ignore_groups = {"!Comment"}}
+
+vim.g.easy_align_delimiters = easy_align_delimiters
