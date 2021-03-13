@@ -1,14 +1,5 @@
-" => General settings
-" Multiple replace with s*
-" hit . to repeatedly replace a change to the word under the cursor
-nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> s* "sy:let @/=@s<CR>cgn
-
 xnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 xnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
-xnoremap <leader>d c<c-r>=system('base64 --decode', @")<cr><esc>
-xnoremap <leader>e c<c-r>=system('base64', @")<cr><esc>
 
 augroup preserve_last_position
   autocmd!
@@ -51,40 +42,6 @@ augroup LuaYank
 augroup END
 
 
-" Ale linter
-noremap <leader>a :ALEFix<CR>
-
-let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'bash': ['shfmt'],
-      \   'css': ['prettier'],
-      \   'elixir': ['mix_format'],
-      \   'haml': ['haml-lint'],
-      \   'html': ['prettier'],
-      \   'javascript': ['eslint'],
-      \   'json': ['prettier'],
-      \   'lua': ['luafmt'],
-      \   'markdown': ['prettier'],
-      \   'ruby': ['rubocop'],
-      \   'scss': ['prettier'],
-      \   'sh': ['shfmt'],
-      \   'sql': ['pgformatter'],
-      \   'terraform': ['terraform'],
-      \   'yaml': ['prettier']
-      \}
-
-let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_ruby_rubocop_options = '-c .rubocop.yml'
-let g:ale_set_highlights = 0
-let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_delay=2000
-
-" EasyAlign
-let g:easy_align_delimiters = {
-      \  '-': { 'pattern': '\-\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
-\ }
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => anyfold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,21 +67,16 @@ augroup END | " EasyAlign: Hit enter in Markdown to automatically align table
 " => lsp_extensions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 augroup lsp_extensions
   autocmd!
   autocmd BufEnter,BufWinEnter,TabEnter *.rs lua require'lsp_extensions'.inlay_hints{ aligned = true}
-  autocmd BufEnter * lua require('completion').on_attach()
+  " autocmd BufEnter * lua require('completion').on_attach()
 augroup END
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CHADtree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <silent><leader>n :CHADopen<CR>
+augroup lsp_formatting
+  autocmd!
+  autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gruvbox

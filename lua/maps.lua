@@ -1,4 +1,5 @@
 local default_opts = {noremap = true, silent = true}
+local expression_opts = {noremap = true, silent = true, expr = true}
 
 local init_vim = "~/.vim_runtime/init.vim"
 local init_lua = "~/.vim_runtime/lua/init.lua"
@@ -34,6 +35,8 @@ vim.api.nvim_set_keymap("n", "<Leader>/", ":!%:p<CR>", default_opts)
 -- Insert mode maps
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", default_opts)
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", default_opts)
+vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expression_opts)
+vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expression_opts)
 --
 -- Terminal mode maps
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", default_opts)
@@ -43,3 +46,13 @@ vim.api.nvim_set_keymap("t", "kj", "<C-\\><C-n>", default_opts)
 -- Visual mode maps
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", default_opts) -- Visually select and move lines up and down
 vim.api.nvim_set_keymap("v", "K", ":m '>-2<CR>gv=gv", default_opts) -- Visually select and move lines up and down
+
+-- Utilities maps
+--
+-- Multiple replace with s*
+-- hit . to repeatedly replace a change to the word under the cursor
+vim.api.nvim_set_keymap("n", "s*", ":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn", default_opts) --
+vim.api.nvim_set_keymap("x", "s*", '"sy:let @/=@s<CR>cgn', default_opts)
+
+vim.api.nvim_set_keymap("x", "<leader>d", 'c<c-r>=system(\'base64 --decode\', @")<cr><esc>', default_opts)
+vim.api.nvim_set_keymap("x", "<leader>e", 'c<c-r>=system(\'base64\', @")<cr><esc>', default_opts)
