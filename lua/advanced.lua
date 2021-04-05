@@ -89,6 +89,9 @@ vim.api.nvim_set_keymap("n", "<Leader>[", ":Git pull<CR>", default_map_opts)
 local lspconfig = require("lspconfig")
 local completion = require("completion")
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local on_attach = function(client, bufnr)
     completion.on_attach(client, bufnr)
 end
@@ -104,7 +107,9 @@ vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_ma
 lspconfig.bashls.setup {on_attach = on_attach}
 lspconfig.clangd.setup {on_attach = on_attach}
 lspconfig.dockerls.setup {on_attach = on_attach}
+lspconfig.flow.setup {on_attach = on_attach}
 lspconfig.gopls.setup {on_attach = on_attach}
+lspconfig.html.setup {capabilities = capabilities, on_attach = on_attach}
 lspconfig.html.setup {on_attach = on_attach}
 lspconfig.jsonls.setup {on_attach = on_attach}
 lspconfig.pyls.setup {on_attach = on_attach}
@@ -112,7 +117,6 @@ lspconfig.rust_analyzer.setup {on_attach = on_attach}
 lspconfig.solargraph.setup {on_attach = on_attach}
 lspconfig.sqlls.setup {on_attach = on_attach}
 lspconfig.terraformls.setup {on_attach = on_attach}
-lspconfig.flow.setup {on_attach = on_attach}
 lspconfig.vimls.setup {on_attach = on_attach}
 lspconfig.yamlls.setup {on_attach = on_attach}
 
@@ -174,6 +178,7 @@ ale_fixers["*"] = {"remove_trailing_lines", "trim_whitespace"}
 ale_fixers["bash"] = {"shfmt"}
 ale_fixers["css"] = {"prettier"}
 ale_fixers["elixir"] = {"mix_format"}
+ale_fixers["go"] = {"gofmt"}
 ale_fixers["haml"] = {"haml-lint"}
 ale_fixers["html"] = {"prettier"}
 ale_fixers["javascript"] = {"eslint"}
@@ -181,6 +186,7 @@ ale_fixers["json"] = {"prettier"}
 ale_fixers["lua"] = {"luafmt"}
 ale_fixers["markdown"] = {"prettier"}
 ale_fixers["ruby"] = {"rubocop"}
+ale_fixers["rust"] = {"rustfmt"}
 ale_fixers["scss"] = {"prettier"}
 ale_fixers["sh"] = {"shfmt"}
 ale_fixers["sql"] = {"pgformatter"}

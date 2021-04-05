@@ -50,9 +50,6 @@ require("packer").startup(
         use "ms-jpq/chadtree.git" -- Amazing file tree written in lua
         use "euclidianAce/BetterLua.vim" -- More sophisticated lua syntax highlighting
 
-        -- Vim in a browser - experimenting with this currently
-        use {"glacambre/firenvim", run = ":call firenvim#install(0)"}
-
         -- Text objects and motions
         use "kana/vim-textobj-user" -- Api for textobj creation
         use "kana/vim-textobj-line" -- Line textobj
