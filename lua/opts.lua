@@ -17,7 +17,7 @@ vim.o.splitright = true
 vim.o.termguicolors = true
 vim.o.writebackup = false
 vim.o.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,_build,*.o,*~,*.pyc"
-vim.o.listchars = "tab:→ ,nbsp:␣,trail:•,eol:$,precedes:«,extends:»"
+vim.o.listchars = "tab:→ ,nbsp:␣,trail:•,precedes:«,extends:»"
 vim.o.shortmess = "filnxtToOFc"
 vim.o.completeopt = "menuone,noinsert,noselect"
 

@@ -61,6 +61,12 @@ require("packer").startup(
         use "kana/vim-textobj-function.git" -- Vimscript function textobj
         use "christoomey/vim-sort-motion" -- Sort motion
         use "tpope/vim-commentary" -- Comment motion
+        use {
+            "AckslD/nvim-revJ.lua",
+            requires = {
+                "sgur/vim-textobj-parameter"
+            }
+        }
 
         -- tpope is productive and adds so much value
         use "tpope/vim-dispatch" -- Asynchronous arbitrary shell execution
