@@ -1,5 +1,6 @@
 {
-  "suggest.noselect": false,
+  "suggest.noselect": true,
+  "suggest.removeDuplicateItems": true,
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -36,15 +37,20 @@
   "markdownlint.onChange": false,
   "markdownlint.onSave": true,
   "languageserver": {
-    "go": {
+    "golang": {
       "command": "gopls",
       "rootPatterns": [
-        "go.mod"
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg/"
       ],
-      "trace.server": "verbose",
       "filetypes": [
         "go"
-      ]
+      ],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     },
     "terraform": {
       "command": "terraform-ls",

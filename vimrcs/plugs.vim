@@ -5,6 +5,7 @@ set shell=bash
 call plug#begin('~/.vim_runtime/plugged/')
 
 Plug 'sainnhe/gruvbox-material'                                    | " Theme
+Plug 'arcticicestudio/nord-vim'                                    | " Theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                | " Open files and ag buffers
 Plug 'junegunn/fzf.vim'                                            | " Open files and ag buffers
 Plug 'junegunn/vim-easy-align'                                     | " Align stuff
@@ -27,6 +28,8 @@ Plug 'vim-test/vim-test'                                           | " Run tests
 Plug 'pseewald/vim-anyfold'                                        | " Language aware folds
 Plug 'tpope/vim-dispatch'                                          | " Asynchronous arbitrary shell execution
 Plug 'tpope/vim-endwise'                                           | " Automatically terminate ( ), do end, { } etc
+
+" Plug 'dense-analysis/ale'                                          | "Golang formatting
 Plug 'tpope/vim-fugitive'                                          | " Git integrations
 Plug 'tpope/vim-repeat'                                            | " Support for repeating vim-surround motions
 Plug 'tpope/vim-rhubarb'                                           | " Open browser with git object under cursor - context aware
@@ -34,7 +37,5 @@ Plug 'tpope/vim-unimpaired'                                        | " Navigate 
 Plug 'tpope/vim-surround'                                          | " Change, add and delete surrounding characters around a target object
 
 call plug#end()
-
-set shell=fish
 
 filetype plugin indent on
