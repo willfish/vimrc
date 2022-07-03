@@ -22,60 +22,51 @@ end
 
 require("packer").startup(
     function()
-        -- Look
-        use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} -- Theme with treesitter compatibility
+        use "wuelnerdotexe/vim-enfocado" -- Theme with treesitter compatibility
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Symbolic syntax highlighting
         use "sheerun/vim-polyglot" -- Language syntax highlighting on steroids
         use "tpope/vim-bundler" -- Gemfile syntax highlighting
 
-        -- Feel
         use "junegunn/vim-easy-align" -- Align stuff
         use "vim-test/vim-test" -- Run tests
-        use "pseewald/vim-anyfold" -- Language aware folds
         use "dense-analysis/ale" -- Asynchronous linter
-        use "epmatsw/ag.vim" -- Wicked fast global find
+        use "pseewald/vim-anyfold" -- Language aware folds
         use "stefandtw/quickfix-reflector.vim" -- Makes quickfix writeable - for example for a dynamic find and replace
+        use "honza/vim-snippets"
 
-        -- LSP (Language Server Protocol) and lua
-        use "tjdevries/nlua.nvim" -- Sensible lua lsp configuration
-        use "neovim/nvim-lspconfig" -- A compendium of built in lsp configuration settings
-        use "nvim-lua/completion-nvim" -- Built in lsp completion
-        use "nvim-lua/diagnostic-nvim" -- Built in lsp diagnostics
-        use "nvim-lua/lsp_extensions.nvim" -- Rust type annotations on every line
-        use "nvim-lua/popup.nvim" -- Handy popup api written in lua
-        use "nvim-lua/plenary.nvim" -- Brings in convenience functions for common lua behaviour
+        use {"neoclide/coc.nvim", branch = "release"} -- LSP client and convention over configuration configurator
+
         use "nvim-telescope/telescope.nvim" -- Fuzzy list popups - branches, files, strings
         use "nvim-telescope/telescope-github.nvim" -- Telescope integration for the github cli
         use "nvim-telescope/telescope-fzy-native.nvim" -- Compiled and significantly faster fzf sorter for telescope
-        use "ms-jpq/chadtree.git" -- Amazing file tree written in lua
-        use "euclidianAce/BetterLua.vim" -- More sophisticated lua syntax highlighting
+        use "nvim-lua/popup.nvim" -- Handy popup api written in lua
+        use "nvim-lua/plenary.nvim" -- Brings in convenience functions for common lua behaviour
+        use "preservim/nerdtree" -- File/folder editor/viewer
 
-        -- Text objects and motions
+        use "RRethy/nvim-treesitter-textsubjects" -- textobj expansion using treesitter symbols
         use "kana/vim-textobj-user" -- Api for textobj creation
         use "kana/vim-textobj-line" -- Line textobj
+        use "whatyouhide/vim-textobj-xmlattr" -- Xml Attribute textobj
         use "b4winckler/vim-angry" -- Argument textobj
         use "glts/vim-textobj-comment" -- Comment textobj
         use "michaeljsmith/vim-indent-object" -- Indent textobj
         use "tek/vim-textobj-ruby" -- Ruby function and class textobj
         use "bps/vim-textobj-python" -- Python function and class textobj
-        use "kana/vim-textobj-function.git" -- Vimscript function textobj
+        use "kana/vim-textobj-function" -- Vimscript function textobj
         use "christoomey/vim-sort-motion" -- Sort motion
         use "tpope/vim-commentary" -- Comment motion
-        use {
-            "AckslD/nvim-revJ.lua",
-            requires = {
-                "sgur/vim-textobj-parameter"
-            }
-        }
+        use { "AckslD/nvim-revJ.lua", requires = { "sgur/vim-textobj-parameter" } } -- Reverse join
+        use "nvim-treesitter/playground" -- Visual representation of treesitter symbols
+        use 'RRethy/nvim-treesitter-endwise' -- tpope endwise replacement that works with scheme treesitter definitions for wayyyy more languages
 
-        -- tpope is productive and adds so much value
         use "tpope/vim-dispatch" -- Asynchronous arbitrary shell execution
-        use "tpope/vim-endwise" -- Automatically terminate ( ), do end, { } etc
         use "tpope/vim-fugitive" -- Git integrations
         use "tpope/vim-repeat" -- Support for repeating vim-surround motions
         use "tpope/vim-rhubarb" -- Open browser with git object under cursor - context aware
         use "tpope/vim-unimpaired" -- Navigate quickfix with ]q (next) [q (previous) entry shortcut
         use "tpope/vim-surround" -- Change, add and delete surrounding characters around a target object
         use "tpope/vim-rails" -- Rails support
+
+        use "kevinhwang91/nvim-bqf" -- Enhanced quickfix - especially filtering
     end
 )

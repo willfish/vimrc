@@ -14,4 +14,5 @@ ln -sf $THIS/init.vim $INIT_NVIM
 #
 # This could be a bug in ln
 [[ -L $RUNTIME ]] && rm -f $RUNTIME
+
 ln -sf $THIS $RUNTIME

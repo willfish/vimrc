@@ -11,6 +11,7 @@ end
 -- Basic configuration
 require("opts") -- Global, Window and Buffer configuration options
 require("maps") -- Normal, Insert, Visual, Terminal mode mappings
+require("autocmds") -- Autocmds
 
 -- Advanced configuration
 require("plugins") -- Pack plugins

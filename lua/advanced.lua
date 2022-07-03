@@ -1,8 +1,10 @@
 local default_map_opts = {noremap = true, silent = true}
 
--- Ag (global text search)
+-- Custom utils
 
-vim.api.nvim_set_keymap("n", "<Leader>g", ":Ag<space>", default_map_opts)
+local default_opts = {noremap = true, silent = true}
+vim.api.nvim_set_keymap("n", "<Leader>wn", ":lua require('wallpaper').next_wallpaper()<CR>", default_opts)
+vim.api.nvim_set_keymap("n", "<Leader>wp", ":lua require('wallpaper').previous_wallpaper()<CR>", default_opts)
 
 -- Telescope (file finder)
 
@@ -50,7 +52,17 @@ vim.api.nvim_set_keymap(
 -- Treesitter
 
 require("nvim-treesitter.configs").setup {
+    ensure_installed = "all",
     highlight = {
+        enable = true
+    },
+    textsubjects = {
+        enable = true,
+        keymaps = {
+            ["."] = "textsubjects-smart"
+        }
+    },
+    endwise = {
         enable = true
     }
 }
@@ -76,97 +88,23 @@ vim.api.nvim_set_keymap("n", "<Leader>l", ":TestVisit<CR>", default_map_opts)
 
 -- vim-fugitive
 
-vim.api.nvim_set_keymap("n", "<Leader>i", ":Git", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>b", ":Gblame<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>o", ":Gbrowse<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "<Leader>s", ":Gstatus<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>i", ":Git ", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>b", ":Git blame<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>o", ":GBrowse<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<Leader>s", ":Git<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>c", ":Git commit<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>]", ":Git push<CR>", default_map_opts)
 vim.api.nvim_set_keymap("n", "<Leader>[", ":Git pull<CR>", default_map_opts)
 
--- lspconfig
+-- NerdTree
 
-local lspconfig = require("lspconfig")
-local completion = require("completion")
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local on_attach = function(client, bufnr)
-    completion.on_attach(client, bufnr)
-end
-
-vim.g.diagnostic_enable_virtual_text = 1
-
-vim.api.nvim_set_keymap("n", "<Leader>a", "<cmd>lua vim.lsp.buf.formatting()<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", default_map_opts)
-vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_map_opts)
-
-lspconfig.bashls.setup {on_attach = on_attach}
-lspconfig.clangd.setup {on_attach = on_attach}
-lspconfig.dockerls.setup {on_attach = on_attach}
-lspconfig.flow.setup {on_attach = on_attach}
-lspconfig.gopls.setup {on_attach = on_attach}
-lspconfig.html.setup {capabilities = capabilities, on_attach = on_attach}
-lspconfig.html.setup {on_attach = on_attach}
-lspconfig.jsonls.setup {on_attach = on_attach}
-lspconfig.pyls.setup {on_attach = on_attach}
-lspconfig.rust_analyzer.setup {on_attach = on_attach}
-lspconfig.solargraph.setup {on_attach = on_attach}
-lspconfig.sqlls.setup {on_attach = on_attach}
-lspconfig.terraformls.setup {on_attach = on_attach}
-lspconfig.vimls.setup {on_attach = on_attach}
-lspconfig.yamlls.setup {on_attach = on_attach}
-
-local sumneko_root_path = "/home/" .. vim.fn.expand("$USER") .. "/.config/nvim/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
-
-lspconfig.sumneko_lua.setup {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-    settings = {
-        Lua = {
-            runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-            diagnostics = {
-                globals = {"vim"},
-                disable = {"lowercase-global", "unused-function", "undefined-global"}
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-                }
-            }
-        }
-    },
-    on_attach = on_attach
-}
-
-lspconfig.efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {"lua"},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {
-                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
-                    formatStdin = true
-                }
-            }
-        }
-    }
-}
-
--- CHADtree
-
-vim.api.nvim_set_keymap("n", "<leader>n", ":CHADopen<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<leader>n", ":NERDTreeToggle<CR>", default_map_opts)
+vim.api.nvim_set_keymap("n", "<leader>nf", ":NERDTreeFind<CR>", default_map_opts)
 
 -- Ale
 
 vim.api.nvim_set_keymap("n", "<leader>a", ":ALEFix<CR>", default_map_opts)
-
+vim.api.nvim_set_keymap("n", "<leader>fa", ":Dispatch git ls-files -m | grep '.rb' | xargs bundle exec rubocop -A<CR>", default_map_opts)
 vim.g.ale_ruby_rubocop_executable = "bundle"
 vim.g.ale_ruby_rubocop_options = "-c .rubocop.yml"
 vim.g.ale_set_highlights = 0
@@ -185,6 +123,7 @@ ale_fixers["javascript"] = {"eslint"}
 ale_fixers["json"] = {"prettier"}
 ale_fixers["lua"] = {"luafmt"}
 ale_fixers["markdown"] = {"prettier"}
+ale_fixers["python"] = {"black", "autoflake"}
 ale_fixers["ruby"] = {"rubocop"}
 ale_fixers["rust"] = {"rustfmt"}
 ale_fixers["scss"] = {"prettier"}
@@ -209,3 +148,34 @@ require("revj").setup {
     enable_default_keymaps = true
 }
 
+-- bqf - filterable quickfix
+
+require("bqf").setup(
+    {
+        auto_enable = true,
+        preview = {
+            auto_preview = false,
+            win_height = 12,
+            win_vheight = 12,
+            delay_syntax = 80,
+            border_chars = {"┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█"}
+        },
+        func_map = {
+            vsplit = "",
+            ptogglemode = "z,",
+            stoggleup = ""
+        },
+        filter = {
+            fzf = {
+                action_for = {["ctrl-s"] = "split"},
+                extra_opts = {"--bind", "ctrl-o:toggle-all", "--prompt", "> "}
+            }
+        }
+    }
+)
+
+-- anyfold
+
+-- Folding can be expensive in larger files so I've moved to invoking this as I need it
+vim.api.nvim_set_keymap("n", "<Leader>z", ":AnyFoldActivate<CR>", default_opts)
+vim.o.foldlevel = 1
